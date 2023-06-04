@@ -1,0 +1,374 @@
+fileFormatVersion: 2
+guid: fdec040752208f1448e234169124ed81
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Base
+  - first:
+      213: 21300002
+    second: Joystick
+  - first:
+      213: 21300004
+    second: Base Highlight
+  - first:
+      213: 21300006
+    second: Joystick Highlight
+  - first:
+      213: 21300008
+    second: Tension Up
+  - first:
+      213: 21300010
+    second: Tension Right
+  - first:
+      213: 21300012
+    second: Tension Down
+  - first:
+      213: 21300014
+    second: Tension Left
+  - first:
+      213: -6894099540836321037
+    second: Joyatick_BG
+  - first:
+      213: -4162735391775391404
+    second: Joystick
+  - first:
+      213: 1090030579689627403
+    second: Edge
+  - first:
+      213: 117744425264341850
+    second: Outer_Circle
+  - first:
+      213: 6736855016284707547
+    second: Up
+  - first:
+      213: -6528656096261677671
+    second: Right
+  - first:
+      213: 2425777348086973975
+    second: Down
+  - first:
+      213: 1469527850202647144
+    second: Left
+  - first:
+      213: -9027193842410833446
+    second: Shoot
+  - first:
+      213: -5826375524231121110
+    second: Ultimate Joystick_9
+  - first:
+      213: 1747830755742767566
+    second: Ultimate Joystick_10
+  - first:
+      213: 685297909531257379
+    second: Ultimate Joystick_11
+  - first:
+      213: -5404525204358210264
+    second: Ultimate Joystick_12
+  - first:
+      213: 6840080494995554551
+    second: Ultimate Joystick_13
+  - first:
+      213: 3243793228687396906
+    second: Ultimate Joystick_14
+  - first:
+      213: -2595572504882171982
+    second: Ultimate Joystick_15
+  - first:
+      213: 7752136954419324526
+    second: Ultimate Joystick_16
+  - first:
+      213: 2689444619692745866
+    second: Ultimate Joystick_17
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 16
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Joyatick_BG
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 412
+        width: 320
+        height: 318
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74177f0c17c3a7a418d746b212ae164f
+      internalID: -6894099540836321037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joystick
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 404
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb85c8f8d77862428a3580b8affb815
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Edge
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 382
+        width: 320
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85989fea7598af44b80a373c439a3b6
+      internalID: 1090030579689627403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Outer_Circle
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 452
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd8f36840e56c64f9a1dcd0bfc57941
+      internalID: 117744425264341850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Up
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 282
+        width: 315
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b74294d8f9c354596820d192ffe8e1
+      internalID: 6736855016284707547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Right
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 33
+        width: 85
+        height: 315
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd555610ea5b033478399add88602e57
+      internalID: -6528656096261677671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Down
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 0
+        width: 315
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c10fa53665089924eb0ee313ee4691de
+      internalID: 2425777348086973975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Left
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 27
+        width: 85
+        height: 315
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a98858bda8d774995cc92c64c95c32
+      internalID: 1469527850202647144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shoot
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 73
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8278298821d3a47a707335038b90d9
+      internalID: -9027193842410833446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 36e0824df51d7ad49b39e842e5298d9e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Up: 6736855016284707547
+      Shoot: -9027193842410833446
+      Joystick: 21300002
+      Right: -6528656096261677671
+      Down: 2425777348086973975
+      Left: 1469527850202647144
+      Outer_Circle: 117744425264341850
+      Edge: 1090030579689627403
+      Joyatick_BG: -6894099540836321037
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
