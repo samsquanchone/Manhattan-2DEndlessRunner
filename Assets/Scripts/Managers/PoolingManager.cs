@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public enum PoolingObjectType { Astroid1, Astroid2, Astroid3, Wormhole, Bullet, SpeedPickUp, HealthPickUp, WormHolePickUp};
+public enum PoolingObjectType { Astroid1, Astroid2, Astroid3, Bullet };
 
 
 public class PoolingManager : MonoBehaviour
@@ -16,7 +16,16 @@ public class PoolingManager : MonoBehaviour
 
     private Vector3 defaultPos = new Vector3(-100, -100, -100);
 
-  
+    private Transform gdpInitialTransform;
+    private Quaternion gdpInitialRotation;
+
+    private Transform popInitialTransform;
+    private Quaternion popInitialRotation;
+
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
