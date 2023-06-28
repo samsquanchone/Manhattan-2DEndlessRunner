@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ItemPickUps;
 
-
-enum ObjectType { ENEMY, ASTROID, PICKUP }; //Used to define base types for getting random type to spawn 
+enum ObjectType { ENEMY, ENVIRONMENTALHAZARD, PICKUP }; //Used to define base types for getting random type to spawn 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private List<Transform> spawnPostitions;
-    [SerializeField] List<GameObject> astroidPrefabs;
+    [SerializeField] List<GameObject> environmentalHazardsPrefabs;
+    [SerializeField] List<GameObject> pickUpPrefabs;
 
 
     [SerializeField] float spawnTime;
@@ -17,10 +18,13 @@ public class SpawnManager : MonoBehaviour
     {
         InvokeRepeating("StartSpawnTimer", 0.1f, 5f);
     }
-
+    public void StopRoutine()
+    {
+        CancelInvoke("StartSpawnTimer");
+    }
     void StartSpawnTimer()
     {
-        StartCoroutine(SpawnTimer(astroidPrefabs.Count));
+        StartCoroutine(SpawnTimer(environmentalHazardsPrefabs.Count));
     }
 
     IEnumerator SpawnTimer(int poolSize)
@@ -34,26 +38,31 @@ public class SpawnManager : MonoBehaviour
 
         switch (spawnType)
         {
-            case ObjectType.ASTROID:
-                _obj = PoolingManager.Instance.GetPoolObject(GetAstroidToSpawn(i)); //Get pooling enum that for respective astroid index
+            case ObjectType.ENVIRONMENTALHAZARD:
+                _obj = PoolingManager.Instance.GetPoolObject(GetEnvironmentalHazardToSpawn(i));   //Get pooling enum that for respective astroid index
                 _obj.transform.position = spawnPostitions[x].transform.position;
-                _obj.transform.rotation = astroidPrefabs[i].transform.rotation;
-                _obj.GetComponent<Astroid>().SetPoolingType(GetAstroidToSpawn(i));
+                _obj.transform.rotation = environmentalHazardsPrefabs[i].transform.rotation;
+                _obj.GetComponent<Astroid>().SetPoolingType(GetEnvironmentalHazardToSpawn(i));
                 _obj.SetActive(true);
                 break;
 
-           /* case ObjectType.ENEMY:
-
-                break;
-
-              case ObjectType.PICKUP:
+           /*case ObjectType.ENEMY:
 
                 break;
            */
-            default: //Default as other cases not defined yet
-                _obj = PoolingManager.Instance.GetPoolObject(GetAstroidToSpawn(i)); //Get pooling enum that for respective astroid index
+              case ObjectType.PICKUP:
+                 i = Random.Range(0, pickUpPrefabs.Count); //Get random index of prefab list
+                _obj = PoolingManager.Instance.GetPoolObject(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<PickUpBase>().pickUpType));
                 _obj.transform.position = spawnPostitions[x].transform.position;
-                _obj.transform.rotation = astroidPrefabs[i].transform.rotation;
+                _obj.transform.rotation = pickUpPrefabs[i].transform.rotation;
+                _obj.GetComponent<PickUpBase>().SetPoolType(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<PickUpBase>().pickUpType));
+                _obj.SetActive(true);
+                break;
+           
+            default: //Default as other cases not defined yet
+                _obj = PoolingManager.Instance.GetPoolObject(GetEnvironmentalHazardToSpawn(i)); //Get pooling enum that for respective astroid index
+                _obj.transform.position = spawnPostitions[x].transform.position;
+                _obj.transform.rotation = environmentalHazardsPrefabs[i].transform.rotation;
                 _obj.SetActive(true);
                 break;
 
@@ -67,7 +76,7 @@ public class SpawnManager : MonoBehaviour
     }
 
 
-    PoolingObjectType GetAstroidToSpawn(int spawnIndex)
+    PoolingObjectType GetEnvironmentalHazardToSpawn(int spawnIndex)
     {
         PoolingObjectType type;
 
@@ -92,6 +101,34 @@ public class SpawnManager : MonoBehaviour
         }
 
         return type;
+    }
+
+    PoolingObjectType GetPickUpToSpawn(PickUpTypes pickUpType)
+    {
+        PoolingObjectType type;
+
+        switch (pickUpType)
+        {
+            case PickUpTypes.HEALTH:
+                type = PoolingObjectType.HealthPickUp;
+                break;
+
+            case PickUpTypes.SPEED:
+                type = PoolingObjectType.SpeedPickUp;
+                break;
+
+            case PickUpTypes.WORMHOLE:
+                type = PoolingObjectType.WormHolePickUp;
+                break;
+
+            default:
+                type = PoolingObjectType.HealthPickUp;
+                break;
+
+        }
+
+        return type;
+
     }
 
 }
