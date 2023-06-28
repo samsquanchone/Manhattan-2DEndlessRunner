@@ -25,12 +25,6 @@ public class UIManager : MonoBehaviour
         CalculateTime();
     }
 
-    public void DeActivateGameUI()
-    {
-        healthText.gameObject.SetActive(false);
-        pointsText.gameObject.SetActive(false);
-        timeText.gameObject.SetActive(false);
-    }
     public void ChangePlayerHealht(int newValue)
     {
         healthText.text = "Health: " + newValue;
