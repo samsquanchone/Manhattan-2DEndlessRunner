@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private List<Transform> spawnPostitions;
     [SerializeField] List<GameObject> astroidPrefabs;
+    [SerializeField] List<GameObject> pickUpPrefabs;
 
 
     [SerializeField] float spawnTime;
@@ -35,14 +36,14 @@ public class SpawnManager : MonoBehaviour
         switch (spawnType)
         {
             case ObjectType.ASTROID:
-                _obj = PoolingManager.Instance.GetPoolObject(GetAstroidToSpawn(i)); //Get pooling enum that for respective astroid index
+                _obj = PoolingManager.Instance.GetPoolObject(GetAstroidToSpawn(i));   //Get pooling enum that for respective astroid index
                 _obj.transform.position = spawnPostitions[x].transform.position;
                 _obj.transform.rotation = astroidPrefabs[i].transform.rotation;
                 _obj.GetComponent<Astroid>().SetPoolingType(GetAstroidToSpawn(i));
                 _obj.SetActive(true);
                 break;
 
-           /* case ObjectType.ENEMY:
+           /*case ObjectType.ENEMY:
 
                 break;
 
