@@ -231,7 +231,7 @@ public class Manhattan : MonoBehaviour {
     // handle messages returned from Manhattan
     List<string> _messages = new List<string>(); // buffer messages from audio thread
     protected void Input(string message) {
-        if (!active) return;
+        if (!active || Musicians != null) return; 
 
         if (message.StartsWith("Time")) {
             var args = message.Split(' ');

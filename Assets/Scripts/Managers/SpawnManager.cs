@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-enum ObjectType { ENEMY, ASTROID, PICKUP }; //Used to define base types for getting random type to spawn 
+enum ObjectType { ENEMY, ENVIRONMENTALHAZARD, PICKUP }; //Used to define base types for getting random type to spawn 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private List<Transform> spawnPostitions;
-    [SerializeField] List<GameObject> astroidPrefabs;
+    [SerializeField] List<GameObject> environmentalHazardsPrefabs;
     [SerializeField] List<GameObject> pickUpPrefabs;
 
 
@@ -18,10 +18,13 @@ public class SpawnManager : MonoBehaviour
     {
         InvokeRepeating("StartSpawnTimer", 0.1f, 5f);
     }
-
+    public void StopRoutine()
+    {
+        CancelInvoke("StartSpawnTimer");
+    }
     void StartSpawnTimer()
     {
-        StartCoroutine(SpawnTimer(astroidPrefabs.Count));
+        StartCoroutine(SpawnTimer(environmentalHazardsPrefabs.Count));
     }
 
     IEnumerator SpawnTimer(int poolSize)
@@ -35,11 +38,11 @@ public class SpawnManager : MonoBehaviour
 
         switch (spawnType)
         {
-            case ObjectType.ASTROID:
-                _obj = PoolingManager.Instance.GetPoolObject(GetAstroidToSpawn(i));   //Get pooling enum that for respective astroid index
+            case ObjectType.ENVIRONMENTALHAZARD:
+                _obj = PoolingManager.Instance.GetPoolObject(GetEnvironmentalHazardToSpawn(i));   //Get pooling enum that for respective astroid index
                 _obj.transform.position = spawnPostitions[x].transform.position;
-                _obj.transform.rotation = astroidPrefabs[i].transform.rotation;
-                _obj.GetComponent<Astroid>().SetPoolingType(GetAstroidToSpawn(i));
+                _obj.transform.rotation = environmentalHazardsPrefabs[i].transform.rotation;
+                _obj.GetComponent<Astroid>().SetPoolingType(GetEnvironmentalHazardToSpawn(i));
                 _obj.SetActive(true);
                 break;
 
@@ -52,9 +55,9 @@ public class SpawnManager : MonoBehaviour
                 break;
            */
             default: //Default as other cases not defined yet
-                _obj = PoolingManager.Instance.GetPoolObject(GetAstroidToSpawn(i)); //Get pooling enum that for respective astroid index
+                _obj = PoolingManager.Instance.GetPoolObject(GetEnvironmentalHazardToSpawn(i)); //Get pooling enum that for respective astroid index
                 _obj.transform.position = spawnPostitions[x].transform.position;
-                _obj.transform.rotation = astroidPrefabs[i].transform.rotation;
+                _obj.transform.rotation = environmentalHazardsPrefabs[i].transform.rotation;
                 _obj.SetActive(true);
                 break;
 
@@ -68,7 +71,7 @@ public class SpawnManager : MonoBehaviour
     }
 
 
-    PoolingObjectType GetAstroidToSpawn(int spawnIndex)
+    PoolingObjectType GetEnvironmentalHazardToSpawn(int spawnIndex)
     {
         PoolingObjectType type;
 
