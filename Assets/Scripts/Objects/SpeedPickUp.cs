@@ -10,6 +10,11 @@ public class SpeedPickUp : PickUpBase
     {
         this.MovePickUp();
     }
+
+    public override void SetPoolType(PoolingObjectType type)
+    {
+        this.poolType = type; //Used to identify what pool this object is associated with, so it can return to pool when done
+    }
     public override void MovePickUp()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
@@ -23,7 +28,7 @@ public class SpeedPickUp : PickUpBase
 
     public override void DeletePickUp()
     {
-        throw new System.NotImplementedException();
+        PoolingManager.Instance.CoolObject(this.gameObject, this.poolType); //Return instance to pool to be reused
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,6 +40,11 @@ public class SpeedPickUp : PickUpBase
 
             StartCoroutine("PowerUpDurationTimer");
             //Power up player, then delete object
+
+            int damage = Random.Range(-4, 10);
+            collision.gameObject.GetComponent<PlayerStats>().PlayerHit(damage);
+
+
         }
     }
 
