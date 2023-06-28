@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public enum PoolingObjectType { Astroid1, Astroid2, Astroid3, Bullet, SpeedPickUp };
+public enum PoolingObjectType { Astroid1, Astroid2, Astroid3, Wormhole, Bullet, SpeedPickUp };
 
 
 public class PoolingManager : MonoBehaviour
