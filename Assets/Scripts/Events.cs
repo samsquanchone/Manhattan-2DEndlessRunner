@@ -23,11 +23,12 @@ public class Events : MonoBehaviour, Manhattan.Listener {
         m_instance = this;
 
         
-        instrument.onValueChanged.AddListener(delegate { OnInstrumentChanged(); });
+        /*instrument.onValueChanged.AddListener(delegate { OnInstrumentChanged(); });
         variation.onClick.AddListener(delegate { OnRequestVariation(); });
         keyChange.onClick.AddListener(delegate { OnRequestKeyChange(); });
         keyReset.onClick.AddListener(delegate { OnRequestKeyReset(); });
-      //tempo.onValueChanged.AddListener(delegate { OnTempoChanged(); });
+        tempo.onValueChanged.AddListener(delegate { OnTempoChanged(); });
+        */
         manhattan.Code("@Melody.instr = @Saw.instr");
     }
 
@@ -77,7 +78,9 @@ public class Events : MonoBehaviour, Manhattan.Listener {
 
     Dropdown.OptionData TubularBells = null;    // 'hidden' Tubular Bells instrument entry
 
+    
     public void OnInput(string message) {
+        /*
         if (message == "TubularBells") {
             if (TubularBells == null) {
                 TubularBells = new Dropdown.OptionData() { text = "Tubular Bells" };
@@ -93,5 +96,7 @@ public class Events : MonoBehaviour, Manhattan.Listener {
 
         manhattan.Musicians[0].SetActive(instrument.value == 3);
         manhattan.Musicians[1].SetActive(instrument.value != 3);
+        */
     }
+    
 }

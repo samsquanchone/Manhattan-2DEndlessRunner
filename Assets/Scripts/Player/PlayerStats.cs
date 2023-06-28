@@ -34,5 +34,6 @@ public class PlayerStats : MonoBehaviour
     void PlayerDead()
     {
        gameObject.SetActive(false);
+       GameManager.Instance.GameOverState();
     }
 }

@@ -562,10 +562,10 @@ MonoBehaviour:
   - {fileID: 2121466888}
   - {fileID: 1992025010}
   - {fileID: 365996130}
-  astroidPrefabs:
-  - {fileID: 5639656631292893845, guid: 4c96575cbc1daed4bb0c72a96ef4802e, type: 3}
-  - {fileID: 496069511812674506, guid: b3e667cec092b7b47a3ff2ea8dc2b677, type: 3}
+  environmentalHazardsPrefabs:
   - {fileID: 673929449321762432, guid: a0c355da5b518e44795b630552c562e9, type: 3}
+  - {fileID: 496069511812674506, guid: b3e667cec092b7b47a3ff2ea8dc2b677, type: 3}
+  - {fileID: 5639656631292893845, guid: 4c96575cbc1daed4bb0c72a96ef4802e, type: 3}
   pickUpPrefabs: []
   spawnTime: 5
 --- !u!4 &214294607
@@ -1345,6 +1345,51 @@ RectTransform:
   m_AnchoredPosition: {x: 218, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1211389168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211389169}
+  - component: {fileID: 1211389170}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1211389169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211389168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1876402462}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211389170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211389168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913d6a5ed3ced2d4e82233f8c032c881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnManager: {fileID: 214294606}
 --- !u!1 &1329413342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,6 +2184,7 @@ Transform:
   - {fileID: 1881846531}
   - {fileID: 194508474}
   - {fileID: 214294607}
+  - {fileID: 1211389169}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
