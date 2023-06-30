@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ItemPickUps;
 
-
-enum ObjectType { ENEMY, ASTROID, PICKUP }; //Used to define base types for getting random type to spawn 
+enum ObjectType { ENEMY, ENVIRONMENTALHAZARD, PICKUP }; //Used to define base types for getting random type to spawn 
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private List<Transform> spawnPostitions;
@@ -47,7 +47,12 @@ public class SpawnManager : MonoBehaviour
                 break;
 
               case ObjectType.PICKUP:
-
+                 i = Random.Range(0, pickUpPrefabs.Count); //Get random index of prefab list
+                _obj = PoolingManager.Instance.GetPoolObject(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<PickUpBase>().pickUpType));
+                _obj.transform.position = spawnPostitions[x].transform.position;
+                _obj.transform.rotation = pickUpPrefabs[i].transform.rotation;
+                _obj.GetComponent<PickUpBase>().SetPoolType(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<PickUpBase>().pickUpType));
+                _obj.SetActive(true);
                 break;
            */
             default: //Default as other cases not defined yet
