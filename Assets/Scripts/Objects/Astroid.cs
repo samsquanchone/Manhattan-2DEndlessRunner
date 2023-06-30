@@ -3,7 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class Astroid : MonoBehaviour
+
+/// <summary>
+/// Interface for environmental hazard, could share pick up, but pick up does not use physics to move, instead transform.
+/// So unique implementation used for this type of object
+/// </summary>
+public interface EnvironmentalHazard
+{
+    void MoveHazard();
+    void SetPoolingType(PoolingObjectType poolType);
+
+    void Hit(int damage);
+
+    void Destroyed();
+}
+
+/// <summary>
+/// Example implementation of a base enviro type, inherit from this to be able to access functionality 
+/// </summary>
+public class Astroid : MonoBehaviour, EnvironmentalHazard
 {
     private Rigidbody2D rb;
 
@@ -21,18 +39,22 @@ public class Astroid : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    private void Update()
+
+    public void FixedUpdate()
     {
-        
+        MoveHazard();
+    }
+
+    public void MoveHazard()
+    {
         rb.AddForce(-transform.right * speed);
         transform.Rotate(new Vector3(0, 0, 20 * Time.deltaTime));
 
         if (transform.position.x <= -18f)
         {
-            PoolingManager.Instance.CoolObject(this.gameObject, astroidType); 
+            PoolingManager.Instance.CoolObject(this.gameObject, astroidType);
         }
     }
-
     public void SetPoolingType(PoolingObjectType poolType)
     {
         astroidType = poolType;
@@ -41,6 +63,11 @@ public class Astroid : MonoBehaviour
     {
         impactVFX.Play();
         health -= damage;
+    }
+
+    public void Destroyed()
+    {
+        //Destroy object here
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,6 +101,5 @@ public class Astroid : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (AddPoints) { UIManager.Instance.IncrementPoints(points); } //Add astroids points value to UI var for points
         PoolingManager.Instance.CoolObject(this.gameObject, astroidType);
-
     }
 }
