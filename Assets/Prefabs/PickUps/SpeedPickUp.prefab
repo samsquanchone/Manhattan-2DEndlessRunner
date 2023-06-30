@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3521992776124482722}
   m_Layer: 0
   m_Name: SpeedPickUp
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d7aa2040249b740b14e0062a1280e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objPrefab: {fileID: 0}
   speed: 5
+  m_poolType: 5
+  m_pickUpType: 0
 --- !u!61 &3521992776124482722
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,7 +111,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

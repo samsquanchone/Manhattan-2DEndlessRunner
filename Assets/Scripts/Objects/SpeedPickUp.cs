@@ -8,20 +8,30 @@ public enum PickUpTypes { SPEED, HEALTH, WORMHOLE }
 public interface PickUpBase
 {
     PickUpTypes pickUpType { get; }
+    PoolingObjectType poolType { get; }
     void MovePickUp();
     void PowerUp();
 
     void DeletePickUp();
 
-    void SetPoolType(PoolingObjectType type);
+  
 }
 public class SpeedPickUp : MonoBehaviour, PickUpBase
 {
     [SerializeField] protected float speed;
 
-    public PickUpTypes m_pickUpType;
-    PoolingObjectType poolType;
+    
 
+
+    public PoolingObjectType m_poolType;
+    public PoolingObjectType poolType
+    {
+        get
+        {
+            return m_poolType;
+        }
+    }
+    public PickUpTypes m_pickUpType;
     public PickUpTypes pickUpType
     {
         get
@@ -35,18 +45,21 @@ public class SpeedPickUp : MonoBehaviour, PickUpBase
         this.MovePickUp();
     }
 
-    public void SetPoolType(PoolingObjectType type)
-    {
-        this.poolType = type; //Used to identify what pool this object is associated with, so it can return to pool when done
-    }
+    
     public void MovePickUp()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
+
+        if (transform.position.x <= -17)
+        {
+            DeletePickUp();
+        }
     }
 
     public void PowerUp()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine("PowerUpDurationTimer");
+        Events.Instance.OnTempoChanged(175);
 
     }
 
@@ -59,22 +72,15 @@ public class SpeedPickUp : MonoBehaviour, PickUpBase
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Pick up registered");
-            Events.Instance.OnTempoChanged(175);
-
-            StartCoroutine("PowerUpDurationTimer");
-            //Power up player, then delete object
-
-            int damage = Random.Range(-4, 10);
-            collision.gameObject.GetComponent<PlayerStats>().PlayerHit(damage);
-
+            PowerUp();
         }
     }
 
     IEnumerator PowerUpDurationTimer()
     {
-        yield return new WaitForSeconds(5f);
-        Events.Instance.ResetTempo();
+        SpawnManager.Instance.ChangeState(SpawnState.LIGHTSPEEDPOWERUP);
+        yield return new WaitForSeconds(0.1f);
+        DeletePickUp();
     }
 
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - EnemyBullet
+  - Enemy
+  - PickUp
+  - EnvironmentalHazard
   layers:
   - Default
   - TransparentFX
