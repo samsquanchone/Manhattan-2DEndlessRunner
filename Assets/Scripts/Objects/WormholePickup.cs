@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ItemPickUps;
+
 
 public class WormholePickup : SpeedPickUp
 {
@@ -25,11 +25,11 @@ public class WormholePickup : SpeedPickUp
     }
 
 
-    public override void MovePickUp()
+    public void MovePickUp()
     {
         base.MovePickUp();
     }
-    public override void PowerUp()
+    public void PowerUp()
     {
 
     }

@@ -1,32 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ItemPickUps;
 
-public class SpeedPickUp : PickUpBase
+public enum PickUpTypes { SPEED, HEALTH, WORMHOLE }
+
+
+public interface PickUpBase
 {
+    PickUpTypes pickUpType { get; }
+    void MovePickUp();
+    void PowerUp();
+
+    void DeletePickUp();
+
+    void SetPoolType(PoolingObjectType type);
+}
+public class SpeedPickUp : MonoBehaviour, PickUpBase
+{
+    [SerializeField] protected float speed;
+
+    public PickUpTypes m_pickUpType;
+    PoolingObjectType poolType;
+
+    public PickUpTypes pickUpType
+    {
+        get
+        {
+            return m_pickUpType;
+        }
+    }
 
     private void FixedUpdate()
     {
         this.MovePickUp();
     }
 
-    public override void SetPoolType(PoolingObjectType type)
+    public void SetPoolType(PoolingObjectType type)
     {
         this.poolType = type; //Used to identify what pool this object is associated with, so it can return to pool when done
     }
-    public override void MovePickUp()
+    public void MovePickUp()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
     }
 
-    public override void PowerUp()
+    public void PowerUp()
     {
         throw new System.NotImplementedException();
 
     }
 
-    public override void DeletePickUp()
+    public void DeletePickUp()
     {
         PoolingManager.Instance.CoolObject(this.gameObject, this.poolType); //Return instance to pool to be reused
     }
@@ -43,7 +67,6 @@ public class SpeedPickUp : PickUpBase
 
             int damage = Random.Range(-4, 10);
             collision.gameObject.GetComponent<PlayerStats>().PlayerHit(damage);
-
 
         }
     }

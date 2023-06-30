@@ -523,8 +523,13 @@ MonoBehaviour:
     container: {fileID: 473801041}
     pool: []
   - type: 5
-    amount: 10
+    amount: 5
     prefab: {fileID: 3521992776124482726, guid: d1239466ae710c744887f751172f5a9a, type: 3}
+    container: {fileID: 1624045807}
+    pool: []
+  - type: 7
+    amount: 5
+    prefab: {fileID: 2282937577596544255, guid: 3f67d94cef933e2478eeb97cb3f7d076, type: 3}
     container: {fileID: 1624045807}
     pool: []
 --- !u!1 &214294605
@@ -568,6 +573,7 @@ MonoBehaviour:
   - {fileID: 5639656631292893845, guid: 4c96575cbc1daed4bb0c72a96ef4802e, type: 3}
   pickUpPrefabs:
   - {fileID: 3521992776124482726, guid: d1239466ae710c744887f751172f5a9a, type: 3}
+  - {fileID: 2282937577596544255, guid: 3f67d94cef933e2478eeb97cb3f7d076, type: 3}
   spawnTime: 5
 --- !u!4 &214294607
 Transform:
@@ -1745,6 +1751,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2282937577596544242, guid: 3f67d94cef933e2478eeb97cb3f7d076, type: 3}
+      propertyPath: pickUpType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2282937577596544253, guid: 3f67d94cef933e2478eeb97cb3f7d076, type: 3}
       propertyPath: m_RootOrder
       value: 13
