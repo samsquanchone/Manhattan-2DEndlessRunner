@@ -7,6 +7,7 @@ public enum PickUpTypes { SPEED, HEALTH, WORMHOLE }
 
 public interface PickUpBase
 {
+    PickUpTypes pickUpType { get; }
     void MovePickUp();
     void PowerUp();
 
@@ -18,8 +19,16 @@ public class SpeedPickUp : MonoBehaviour, PickUpBase
 {
     [SerializeField] protected float speed;
 
-    public PickUpTypes pickUpType;
+    public PickUpTypes m_pickUpType;
     PoolingObjectType poolType;
+
+    public PickUpTypes pickUpType
+    {
+        get
+        {
+            return m_pickUpType;
+        }
+    }
 
     private void FixedUpdate()
     {
