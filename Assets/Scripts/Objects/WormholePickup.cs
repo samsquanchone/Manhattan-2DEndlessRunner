@@ -45,6 +45,9 @@ public class WormholePickup : SpeedPickUp
 
             // now need to deduct or add points
 
+            UIManager.Instance.IncrementPoints(Random.Range(-100, 100));
+            PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
+
         }
     }
 

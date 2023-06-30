@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => m_instance;
     private static GameManager m_instance;
 
-    [SerializeField] private SpawnManager spawnManager;
+   
 
     private bool isPlaying = true;
     
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     {
         //Stop spawning, stop time, show score, provide reset button 
         isPlaying = false;
-        spawnManager.StopRoutine();
+        SpawnManager.Instance.StopRoutine();
         UIManager.Instance.DeActivateGameUI();
         SceneManager.LoadScene(2);
     }
