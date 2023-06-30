@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyBullet : MonoBehaviour
 {
     Rigidbody2D bulletRb;
@@ -32,18 +33,11 @@ public class EnemyBullet : MonoBehaviour
         }
     }
 
-    public int Damage()
-    {
-        int _damage = damage;
-
-        PoolingManager.Instance.CoolObject(this.gameObject, PoolingObjectType.EnemyBullet); //Return Bullet prefab back to pool 
-
-        return _damage;
-    }
+    
 
     IEnumerator AutoDestructTimer()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         PoolingManager.Instance.CoolObject(this.gameObject, PoolingObjectType.EnemyBullet); //Return Bullet prefab back to pool 
 
     }
