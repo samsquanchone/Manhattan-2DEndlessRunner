@@ -17,8 +17,9 @@ public class PlayerStats : MonoBehaviour
 
     public void PlayerHit(int damage)
     {
-        health -= damage;
         impactVFX.Play();
+        health -= damage;
+
         UIManager.Instance.ChangePlayerHealht(health);
 
         if (health <= 0)
@@ -28,12 +29,18 @@ public class PlayerStats : MonoBehaviour
 
         }
 
+    }
 
+    public void PlayerHealed(int amount)
+    {
+        if (health <= 100)
+            health += amount;
     }
 
     void PlayerDead()
     {
-       gameObject.SetActive(false);
-       GameManager.Instance.GameOverState();
+        impactVFX.Play();
+        gameObject.SetActive(false);
+        GameManager.Instance.GameOverState();
     }
 }

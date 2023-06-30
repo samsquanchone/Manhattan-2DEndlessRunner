@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         bulletRb = GetComponent<Rigidbody2D>();
+        StartCoroutine("AutoDestructTimer");
     }
 
     // Update is called once per frame
@@ -35,6 +36,15 @@ public class Bullet : MonoBehaviour
         PoolingManager.Instance.CoolObject(this.gameObject, PoolingObjectType.Bullet); //Return Bullet prefab back to pool 
 
         return _damage;
+    }
+
+
+
+    IEnumerator AutoDestructTimer()
+    {
+        yield return new WaitForSeconds(5f);
+        PoolingManager.Instance.CoolObject(this.gameObject, PoolingObjectType.Bullet); //Return Bullet prefab back to pool 
+
     }
 
     

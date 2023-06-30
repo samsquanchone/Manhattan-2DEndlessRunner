@@ -40,10 +40,13 @@ public class WormholePickup : SpeedPickUp
             Debug.Log("Entered black hole");
 
             //Power up player, then delete object
-            int damage = Random.Range(5, 10);
+            int damage = Random.Range(-15, 15);
             collision.gameObject.GetComponent<PlayerStats>().PlayerHit(damage);
 
             // now need to deduct or add points
+
+            UIManager.Instance.IncrementPoints(Random.Range(-100, 100));
+            PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
 
         }
     }
