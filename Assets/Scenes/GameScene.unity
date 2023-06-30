@@ -705,9 +705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04078e6044c3f464a9b2c54ef481459b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutputLevel: 1
+  OutputLevel: 0.5
   PlaybackMode: 0
-  Filename: manhattan.zmu
+  Filename: Cavestory.zmu
   AutoPlay: 1
   DebugOutput: 0
   Listeners:
