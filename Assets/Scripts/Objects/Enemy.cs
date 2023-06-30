@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public enum EnemyType { BasicEnemy }
 public enum EnemyState { Moving, Engaging }
@@ -30,8 +31,11 @@ public class Enemy : MonoBehaviour, IEnemy
             return m_poolType;
         }
     }
+    [SerializeField] VisualEffect impactVFX;
     [SerializeField] protected GameObject enemyPrefab;
     [SerializeField] protected int health;
+    const int initialHealth = 50;
+
     [SerializeField] protected int points;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float followSpeed;
@@ -54,7 +58,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
         engagementPositionIndex = Random.Range(0, engagementPositions.Count);
 
-
+        health = initialHealth;
     }
 
     protected virtual void Update() //Override this on inheriting, can use this functionality, as well as extending it 
@@ -120,9 +124,12 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void Damaged(int damage)
     {
+        impactVFX.Play();
         health -= damage;
         if (health <= 0)
         {
+            health = initialHealth; // as we are not deleting the objects, just de-activiating them, we cant rely on on Start
+            UIManager.Instance.IncrementPoints(points);
             PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
         }
     }

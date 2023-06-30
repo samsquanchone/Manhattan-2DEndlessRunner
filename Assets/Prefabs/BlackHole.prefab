@@ -152,7 +152,7 @@ MonoBehaviour:
   m_poolType: 7
   m_pickUpType: 2
   rb: {fileID: 2282937577596544243}
-  rotation: 0
+  rotation: 5
 --- !u!50 &2282937577596544243
 Rigidbody2D:
   serializedVersion: 4
@@ -189,4 +189,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 9.599998
+  m_Radius: 5.8730583
