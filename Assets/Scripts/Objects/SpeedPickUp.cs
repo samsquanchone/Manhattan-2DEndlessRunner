@@ -5,6 +5,19 @@ using ItemPickUps;
 
 public class SpeedPickUp : PickUpBase
 {
+    void MovePickUp();
+    void PowerUp();
+
+    void DeletePickUp();
+
+    void SetPoolType(PoolingObjectType type);
+}
+public class SpeedPickUp : MonoBehaviour, PickUpBase
+{
+    [SerializeField] protected float speed;
+
+    public PickUpTypes pickUpType;
+    PoolingObjectType poolType;
 
     private void FixedUpdate()
     {

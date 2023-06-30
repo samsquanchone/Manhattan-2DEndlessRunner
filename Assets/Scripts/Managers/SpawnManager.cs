@@ -48,10 +48,10 @@ public class SpawnManager : MonoBehaviour
 
               case ObjectType.PICKUP:
                  i = Random.Range(0, pickUpPrefabs.Count); //Get random index of prefab list
-                _obj = PoolingManager.Instance.GetPoolObject(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<PickUpBase>().pickUpType));
+                _obj = PoolingManager.Instance.GetPoolObject(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<SpeedPickUp>().pickUpType));
                 _obj.transform.position = spawnPostitions[x].transform.position;
                 _obj.transform.rotation = pickUpPrefabs[i].transform.rotation;
-                _obj.GetComponent<PickUpBase>().SetPoolType(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<PickUpBase>().pickUpType));
+                _obj.GetComponent<PickUpBase>().SetPoolType(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<SpeedPickUp>().pickUpType));
                 _obj.SetActive(true);
                 break;
            */
