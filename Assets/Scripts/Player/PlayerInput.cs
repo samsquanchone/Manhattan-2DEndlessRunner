@@ -79,4 +79,5 @@ public class PlayerInput : MonoBehaviour
             obj.SetActive(false);
         }
     }
+
 }

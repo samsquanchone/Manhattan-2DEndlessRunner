@@ -9,18 +9,28 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private VisualEffect impactVFX;
 
+    private bool isHit;
+    public GameObject shield;
+    private ShieldPickup shieldPickup;
+
     private void Start()
     {
 
         UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
+        isHit = false;
+        shieldPickup = shield.GetComponent<ShieldPickup>();
     }
 
     public void PlayerHit(int damage)
     {
-        impactVFX.Play();
-        health -= damage;
-
-        UIManager.Instance.ChangePlayerHealht(health);
+        if (shieldPickup.shieldIsOn == false)
+        {
+       
+            impactVFX.Play();
+            health -= damage;
+            isHit = true;
+            UIManager.Instance.ChangePlayerHealht(health);
+        }
 
         if (health <= 0)
         {
