@@ -39,6 +39,7 @@ public class ShieldPickup : SpeedPickUp
             playerAnimator.StopPlayback();
             playerAnimator.SetTrigger("TrShield");
             Invoke(nameof(resetShield), shieldRechargeTime);
+            DeletePickUp();
         }
     }
     // Start is called before the first frame update
@@ -60,6 +61,5 @@ public class ShieldPickup : SpeedPickUp
         shieldIsOn = false;
         playerAnimator.StopPlayback();
         playerAnimator.SetTrigger("TrNorm");
-        DeletePickUp();
     }
 }

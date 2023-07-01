@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIMainMenu : MonoBehaviour
 {
+    
     [SerializeField] Button _startGame;
     // Start is called before the first frame update
     void Start()
