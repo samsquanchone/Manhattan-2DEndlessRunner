@@ -37,7 +37,7 @@ public class EnemyBullet : MonoBehaviour
 
     IEnumerator AutoDestructTimer()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         PoolingManager.Instance.CoolObject(this.gameObject, PoolingObjectType.EnemyBullet); //Return Bullet prefab back to pool 
 
     }

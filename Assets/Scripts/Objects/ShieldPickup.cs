@@ -12,6 +12,7 @@ public class ShieldPickup : SpeedPickUp
 
     [SerializeField] int shieldRechargeTime;
 
+    
     private void FixedUpdate()
     {
         MovePickUp();

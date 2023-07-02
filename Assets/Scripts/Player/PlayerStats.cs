@@ -45,6 +45,8 @@ public class PlayerStats : MonoBehaviour
     {
         if (health <= 100)
             health += amount;
+            UIManager.Instance.ChangePlayerHealht(health);
+
     }
 
     void PlayerDead()

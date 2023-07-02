@@ -185,7 +185,11 @@ public class SpawnManager : MonoBehaviour
             case PickUpTypes.WORMHOLE:
                 type = PoolingObjectType.WormHolePickUp;
                 break;
-           
+
+            case PickUpTypes.SHIELD:
+                type = PoolingObjectType.ShieldPickup;
+                break;
+
             default:
                 type = PoolingObjectType.HealthPickUp;
                 break;
