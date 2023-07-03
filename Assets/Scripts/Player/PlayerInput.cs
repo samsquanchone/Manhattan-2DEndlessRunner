@@ -9,6 +9,8 @@ public class PlayerInput : MonoBehaviour
 {
     private Rigidbody2D playerRb;
 
+    private WeaponController playerWepController;
+
     private Vector2 playerPos;
     [SerializeField] private float speed;
 
@@ -25,6 +27,7 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>(); //Find RB on gameObj and set as var 
+        playerWepController = GetComponent<WeaponController>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -39,18 +42,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (context.performed) //Ensures no multi-triggers
         {
-            Debug.Log("PlayerShoot");
-            foreach (GameObject obj in firePoints)
-            {
-                obj.SetActive(true);
-                GameObject _obj = PoolingManager.Instance.GetPoolObject(PoolingObjectType.Bullet); 
-                _obj.transform.position = obj.transform.position;
-                _obj.transform.rotation = obj.transform.rotation;
-                _obj.SetActive(true);
-
-               // Instantiate(playerBulletPrefab, obj.transform.position, obj.transform.rotation); //Instantiate bullets at all fire points, should change to pooling
-                StartCoroutine("DisableWeaponFlash");
-            }
+            playerWepController.FirePrimaryWeapon();
         }
     }
 
@@ -58,26 +50,9 @@ public class PlayerInput : MonoBehaviour
     {
         if (context.performed) //Ensures no multi-triggers
         {
-            laserVFX.Play();
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 1000);
-            if (hit.collider != null)
-            {
-                Debug.Log("Boom!" + hit.collider.gameObject.name);
-               if (hit.collider.gameObject.GetComponent<Astroid>() != null)
-                hit.collider.gameObject.GetComponent<Astroid>().Hit(80); //Will need to change to diffeent method down line, to avoid null exeptions for different object types that are not astroids
-            }
+            playerWepController.FireSecondaryWeapon();
         }
 
-    }
-
-    //Should abstact some shoot functonality to another script if this script gets too large
-    IEnumerator DisableWeaponFlash()
-    {
-        yield return new WaitForSeconds(0.1f);
-        foreach (GameObject obj in firePoints)
-        {
-            obj.SetActive(false);
-        }
     }
 
 }
