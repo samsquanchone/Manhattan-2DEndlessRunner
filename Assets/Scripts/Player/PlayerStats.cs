@@ -43,7 +43,7 @@ public class PlayerStats : MonoBehaviour
 
     public void PlayerHealed(int amount)
     {
-        if (health <= 100)
+        if (health < 100)
             health += amount;
             UIManager.Instance.ChangePlayerHealht(health);
 

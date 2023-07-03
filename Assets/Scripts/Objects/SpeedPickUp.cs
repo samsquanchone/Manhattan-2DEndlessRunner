@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum PickUpTypes { SPEED, HEALTH, WORMHOLE, SHIELD }
 
@@ -9,6 +10,7 @@ public interface PickUpBase
 {
     PickUpTypes pickUpType { get; }
     PoolingObjectType poolType { get; }
+
     void MovePickUp();
     void PowerUp();
 
@@ -19,8 +21,6 @@ public interface PickUpBase
 public class SpeedPickUp : MonoBehaviour, PickUpBase
 {
     [SerializeField] protected float speed;
-
-    
 
 
     public PoolingObjectType m_poolType;
@@ -40,6 +40,12 @@ public class SpeedPickUp : MonoBehaviour, PickUpBase
         }
     }
 
+
+
+    protected virtual void Start()
+    {
+      
+    }
     private void FixedUpdate()
     {
         this.MovePickUp();
@@ -66,12 +72,14 @@ public class SpeedPickUp : MonoBehaviour, PickUpBase
     public void DeletePickUp()
     {
         PoolingManager.Instance.CoolObject(this.gameObject, this.poolType); //Return instance to pool to be reused
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            Events.Instance.OnTriggerStinger(this.pickUpType);
             PowerUp();
         }
     }
@@ -79,6 +87,7 @@ public class SpeedPickUp : MonoBehaviour, PickUpBase
     IEnumerator PowerUpDurationTimer()
     {
         SpawnManager.Instance.ChangeState(SpawnState.LIGHTSPEEDPOWERUP);
+
         yield return new WaitForSeconds(0.1f);
         DeletePickUp();
     }

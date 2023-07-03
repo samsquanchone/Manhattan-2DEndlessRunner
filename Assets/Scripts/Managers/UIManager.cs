@@ -33,11 +33,13 @@ public class UIManager : MonoBehaviour
     }
     public void ChangePlayerHealht(int newValue)
     {
+        
         healthText.text = "Health: " + newValue;
     }
 
     public void IncrementPoints(int amount)
     {
+
         points += amount;
         pointsText.text = "Points: " + points.ToString(); 
     }

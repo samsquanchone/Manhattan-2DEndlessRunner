@@ -38,7 +38,7 @@ public class WormholePickup : SpeedPickUp
         if (collision.tag == "Player")
         {
             Debug.Log("Entered black hole");
-
+            Events.Instance.OnTriggerStinger(this.pickUpType);
             //Power up player, then delete object
             int damage = Random.Range(-15, 15);
             collision.gameObject.GetComponent<PlayerStats>().PlayerHit(damage);
