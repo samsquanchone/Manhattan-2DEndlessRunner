@@ -14,9 +14,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text pointsText;
     [SerializeField] private TMP_Text timeText;
     //Variables
-    int points = 0;
+    public int points = 0;
 
-    private void Start()
+    private void Awake()
     {
         m_instance = this;  //Instantiate singleton
     }
@@ -33,11 +33,13 @@ public class UIManager : MonoBehaviour
     }
     public void ChangePlayerHealht(int newValue)
     {
+        
         healthText.text = "Health: " + newValue;
     }
 
     public void IncrementPoints(int amount)
     {
+
         points += amount;
         pointsText.text = "Points: " + points.ToString(); 
     }
@@ -56,4 +58,5 @@ public class UIManager : MonoBehaviour
 
         timeText.text = string.Format("{0}:{1}:{2}.{3}", hours.ToString("00"), minutes.ToString("00"), seconds.ToString("00"), milliseconds.ToString("00"));
     }
+
 }

@@ -13,15 +13,30 @@ public class PlayerStats : MonoBehaviour
 
     public GameObject whiteholePrefab;
 
+
+    private Animator playerAnimator;
+    private GameObject player;
+
     Renderer visual;
 
     bool InHole = false;
     bool OutHole = false;
     
 
+    private bool isHit;
+    public GameObject shield;
+    private ShieldPickup shieldPickup;
+
+    bool isShieldActive = false;
+
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerAnimator = player.GetComponent<Animator>();
+       
 
+        isHit = false;
+       /// shieldPickup = GameObject.Find("Shield").GetComponent<ShieldPickup>();
         UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
         visual = GetComponent<Renderer>();
         visual.enabled = true;
@@ -60,6 +75,7 @@ public class PlayerStats : MonoBehaviour
             if (transform.localScale.x >= 0.5f)
             {
                 Debug.Log("your out!");
+                Destroy(whiteholePrefab);
                 OutHole = false;
 
             }
@@ -68,10 +84,14 @@ public class PlayerStats : MonoBehaviour
 
     public void PlayerHit(int damage)
     {
-        impactVFX.Play();
-        health -= damage;
-
-        UIManager.Instance.ChangePlayerHealht(health);
+        if (!isShieldActive)
+        {
+       
+            impactVFX.Play();
+            health -= damage;
+            isHit = true;
+            UIManager.Instance.ChangePlayerHealht(health);
+        }
 
         if (health <= 0)
         {
@@ -84,8 +104,10 @@ public class PlayerStats : MonoBehaviour
 
     public void PlayerHealed(int amount)
     {
-        if (health <= 100)
+        if (health < 100)
             health += amount;
+            UIManager.Instance.ChangePlayerHealht(health);
+
     }
 
     void PlayerDead()
@@ -113,6 +135,22 @@ public class PlayerStats : MonoBehaviour
         //whiteholePrefab.transform.position = spawnPos;
         InHole = false;
 
+    }
+
+    public void ActivateShield(float shieldTime)
+    {
+        playerAnimator.StopPlayback();
+        playerAnimator.SetTrigger("TrShield");
+        isShieldActive = true;
+        StartCoroutine(ShieldTimer(shieldTime));
+    }
+
+    IEnumerator ShieldTimer(float shieldTime)
+    {
+        yield return new WaitForSeconds(shieldTime);
+        playerAnimator.StopPlayback();
+        playerAnimator.SetTrigger("TrNorm");
+        isShieldActive = false;
     }
 
     IEnumerator WhiteholeTime () { // this is on a seperate thread (coroutine)

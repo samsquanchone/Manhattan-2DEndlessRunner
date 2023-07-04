@@ -9,13 +9,14 @@ public class Events : MonoBehaviour, Manhattan.Listener {
 
     public static Events Instance => m_instance;
     private static Events m_instance;
-
     public Manhattan manhattan;
-
     public Dropdown instrument;
     public Button variation;
     public Button keyChange, keyReset;
     public Slider tempo;
+
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,28 +24,8 @@ public class Events : MonoBehaviour, Manhattan.Listener {
         m_instance = this;
 
         
-        /*instrument.onValueChanged.AddListener(delegate { OnInstrumentChanged(); });
-        variation.onClick.AddListener(delegate { OnRequestVariation(); });
-        keyChange.onClick.AddListener(delegate { OnRequestKeyChange(); });
-        keyReset.onClick.AddListener(delegate { OnRequestKeyReset(); });
-        tempo.onValueChanged.AddListener(delegate { OnTempoChanged(); });
-        */
+       
         manhattan.Code("@Melody.instr = @Saw.instr");
-    }
-
-    public void OnInstrumentChanged() {
-        switch (instrument.value) {
-            case 0: // Saw Wave
-                manhattan.Code("@Melody.instr = @Saw.instr");
-                break;
-            case 1: // Dulcimer
-                manhattan.Code("@Melody.instr = @Dulcimer.instr");
-                break;
-            case 2: // Oboe
-                manhattan.Code("@Melody.instr = @Oboe.instr");
-                break;
-        }
-        manhattan.Run("Melody"); // (code to set register and volume)
     }
 
     public void OnRequestVariation() {
@@ -64,6 +45,33 @@ public class Events : MonoBehaviour, Manhattan.Listener {
         keyReset.interactable = false;
     }
 
+    public void OnTriggerStinger(PickUpTypes pickUpTypes)
+    {
+        switch(pickUpTypes)
+        {
+            case PickUpTypes.SPEED:
+                Debug.Log("Triggering: " + pickUpTypes.ToString() + "  Stinger");
+                break;
+
+            case PickUpTypes.HEALTH:
+                Debug.Log("Triggering: " + pickUpTypes.ToString() + "  Stinger");
+                break;
+
+            case PickUpTypes.WORMHOLE:
+                Debug.Log("Triggering: " + pickUpTypes.ToString() + "  Stinger");
+                break;
+
+            case PickUpTypes.SHIELD:
+                Debug.Log("Triggering: " + pickUpTypes.ToString() + "  Stinger");
+                break;
+
+        }
+    }
+
+    public void Hello()
+    {
+        
+    }
     public void OnTempoChanged(int value)
     {
         manhattan.Set(".tempo", value);
@@ -79,24 +87,10 @@ public class Events : MonoBehaviour, Manhattan.Listener {
     Dropdown.OptionData TubularBells = null;    // 'hidden' Tubular Bells instrument entry
 
     
-    public void OnInput(string message) {
-        /*
-        if (message == "TubularBells") {
-            if (TubularBells == null) {
-                TubularBells = new Dropdown.OptionData() { text = "Tubular Bells" };
-                if (!instrument.options.Contains(TubularBells))
-                    instrument.options.Add(TubularBells);
-            }
-            instrument.value = 3;
-        } else if (message == "Kalinka") {
-            variation.interactable = true;
-            keyChange.interactable = true;
-            keyReset.interactable = true;
-        }
+    public void OnInput(string message)
+    {
 
-        manhattan.Musicians[0].SetActive(instrument.value == 3);
-        manhattan.Musicians[1].SetActive(instrument.value != 3);
-        */
+        
     }
     
 }

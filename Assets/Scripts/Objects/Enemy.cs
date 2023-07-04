@@ -31,10 +31,10 @@ public class Enemy : MonoBehaviour, IEnemy
             return m_poolType;
         }
     }
-    [SerializeField] VisualEffect impactVFX;
+    [SerializeField] protected VisualEffect impactVFX;
     [SerializeField] protected GameObject enemyPrefab;
     [SerializeField] protected int health;
-    const int initialHealth = 50;
+    protected const int initialHealth = 50;
 
     [SerializeField] protected int points;
     [SerializeField] protected float moveSpeed;
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] private Transform firePoint;
     [SerializeField] protected GameObject bullet;
 
-    EnemyState enemyState = EnemyState.Moving;
+    protected EnemyState enemyState = EnemyState.Moving;
 
 
     void Start()
