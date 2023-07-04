@@ -13,7 +13,11 @@ GameObject:
   - component: {fileID: 7094647705068227913}
   - component: {fileID: 8698349884307562283}
   - component: {fileID: 5114028313612876841}
-  - component: {fileID: -5481500285516939205}
+<<<<<<< Updated upstream
+  - component: {fileID: 5031758580105127065}
+=======
+  - component: {fileID: 1910383335722280234}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: MeleEnemy
   m_TagString: Enemy
@@ -147,7 +151,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-5481500285516939205
+<<<<<<< Updated upstream
+--- !u!114 &5031758580105127065
+=======
+--- !u!114 &1910383335722280234
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +164,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7094647705068227914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d73e37c36a7e30f4eb92660378002381, type: 3}
+<<<<<<< Updated upstream
+  m_Script: {fileID: 11500000, guid: d6d562ed8cafd7c41bb5a99b764e74d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_poolType: 13
@@ -176,7 +185,30 @@ MonoBehaviour:
   maxShotCooldown: 0
   firePoint: {fileID: 0}
   bullet: {fileID: 0}
-  meleDamage: 50
+  meleDamage: 0
+=======
+  m_Script: {fileID: 11500000, guid: 9b384c2fa61c2d44c9d6bd08b6921626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_poolType: 13
+  impactVFX: {fileID: 4873330720936822324, guid: 5b2faba7aaaa0e946a1d366910bc150f, type: 3}
+  enemyPrefab: {fileID: 7094647705068227914}
+  health: 80
+  points: 80
+  moveSpeed: 5
+  followSpeed: 4
+  engagementPositions:
+  - {fileID: 9201564554832459406, guid: 27e8f80309b5b1c47a08f23c9284896d, type: 3}
+  - {fileID: 189256929768670461, guid: 642d91ebf321af346b8b5f68fd53aa88, type: 3}
+  - {fileID: 3402804951565668240, guid: d79cd95d822692e43bd1c0462b264953, type: 3}
+  - {fileID: 8327904734410631136, guid: 009034d8b9c1ef846b2feaff4a6d330b, type: 3}
+  playerPosition: {fileID: 0}
+  minShotCooldown: 3
+  maxShotCooldown: 5
+  firePoint: {fileID: 7094647705068227919}
+  bullet: {fileID: 5182163021499923868, guid: d24929c30350c0549985f523e828739e, type: 3}
+  meleDamage: 60
+>>>>>>> Stashed changes
 --- !u!1 &8087855682223746533
 GameObject:
   m_ObjectHideFlags: 0
