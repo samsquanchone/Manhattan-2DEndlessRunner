@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    Rigidbody2D bulletRb;
+    protected Rigidbody2D bulletRb;
 
-    [SerializeField] private float speed;
+    [SerializeField] protected float speed;
     [SerializeField] private int damage;
 
     
@@ -15,7 +15,7 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] GameObject impactVFX;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         bulletRb = GetComponent<Rigidbody2D>();
 
@@ -23,11 +23,11 @@ public class EnemyBullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual  void Update()
     {
         bulletRb.AddForce(-transform.right * speed);
 
-        if (this.gameObject.transform.position.x >= 10)
+        if (this.gameObject.transform.position.x <= -10)
         {
             PoolingManager.Instance.CoolObject(this.gameObject, PoolingObjectType.EnemyBullet); //Return Bullet prefab back to pool 
         }
@@ -42,7 +42,7 @@ public class EnemyBullet : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
