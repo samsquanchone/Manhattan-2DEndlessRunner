@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - PickUp
   - EnvironmentalHazard
+  - Shield
   layers:
   - Default
   - TransparentFX

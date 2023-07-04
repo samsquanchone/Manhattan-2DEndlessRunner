@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1199211343389495381}
   - component: {fileID: 1199211343389495382}
   - component: {fileID: 1199211343389495388}
-  - component: {fileID: 1199211343389495394}
+  - component: {fileID: 6105754999307950674}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -429,7 +429,7 @@ MonoBehaviour:
   health: 100
   impactVFX: {fileID: 42077517}
   shield: {fileID: 3521992776124482726, guid: b65f469e2414afa41a9527293c7a0bef, type: 3}
---- !u!114 &1199211343389495394
+--- !u!114 &6105754999307950674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -438,17 +438,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1199211341979012382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0b359668b5f26d4b96c45a3e9a77ceb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cb57157da1de0b4f9ceed3ff8c02c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerBulletPrefab: {fileID: 832422983020512370, guid: a076ef5632131f549b869268b3d06fe0, type: 3}
   playerLazerPrefab: {fileID: 3867128672523570364, guid: 79635078422a1844eaf226f006bac0fa, type: 3}
-  firePoints:
-  - {fileID: 1199211343216577060}
-  - {fileID: 1199211342172521093}
-  lazerFirePoint: {fileID: 2670275404945586679}
-  lazerCooldownTime: 10
-  laserVFX: {fileID: 2670275404945586632}
+  firePoints: []
+  lazerFirePoint: {fileID: 0}
+  lazerCooldownTime: 0
+  laserVFX: {fileID: 3867128672523570366, guid: 79635078422a1844eaf226f006bac0fa, type: 3}
 --- !u!1 &1199211342172521093
 GameObject:
   m_ObjectHideFlags: 0
