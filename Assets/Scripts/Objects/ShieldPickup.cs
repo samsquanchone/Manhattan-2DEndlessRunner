@@ -12,6 +12,7 @@ public class ShieldPickup : SpeedPickUp
 
     [SerializeField] int shieldRechargeTime;
 
+    
     private void FixedUpdate()
     {
         MovePickUp();
@@ -33,9 +34,9 @@ public class ShieldPickup : SpeedPickUp
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision");
         if (collision.CompareTag("Player"))
         {
+            Events.Instance.OnTriggerStinger(this.pickUpType);
             shieldIsOn = true;
             playerAnimator.StopPlayback();
             playerAnimator.SetTrigger("TrShield");
@@ -59,8 +60,8 @@ public class ShieldPickup : SpeedPickUp
 
     private void resetShield()
     {
+        shieldIsOn = false;
         playerAnimator.StopPlayback();
         playerAnimator.SetTrigger("TrNorm");
-        shieldIsOn = false;
     }
 }

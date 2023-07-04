@@ -20,14 +20,18 @@ public class PlayerStats : MonoBehaviour
     
 
     private bool isHit;
+    public GameObject shield;
     private ShieldPickup shieldPickup;
 
     private void Start()
     {
-        shieldPickup = GameObject.Find("Shield").GetComponent<ShieldPickup>();
-        UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
+
+       
         isHit = false;
-        
+        shieldPickup = shield.GetComponent<ShieldPickup>();
+        UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
+        visual = GetComponent<Renderer>();
+        visual.enabled = true;
     }
 
     private void LateUpdate() {
@@ -80,11 +84,6 @@ public class PlayerStats : MonoBehaviour
             isHit = true;
             UIManager.Instance.ChangePlayerHealht(health);
         }
-        if (shieldPickup.shieldIsOn == true)
-        {
-            Debug.Log("shield is on true");
-            health -= 0;
-        }
 
         if (health <= 0)
         {
@@ -99,11 +98,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (health < 100)
             health += amount;
-        if (health > 100)
-            health = 100;
             UIManager.Instance.ChangePlayerHealht(health);
-
-        
 
     }
 
