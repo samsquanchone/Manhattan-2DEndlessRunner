@@ -726,7 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OutputLevel: 0.5
   PlaybackMode: 0
-  Filename: Cavestory.zmu
+  Filename: NewCavestory.zmu
   AutoPlay: 1
   DebugOutput: 0
   Listeners:
