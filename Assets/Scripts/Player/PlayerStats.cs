@@ -67,6 +67,7 @@ public class PlayerStats : MonoBehaviour
             if (transform.localScale.x >= 0.5f)
             {
                 Debug.Log("your out!");
+                Destroy(whiteholePrefab);
                 OutHole = false;
 
             }

@@ -422,12 +422,12 @@ MonoBehaviour:
     prefab: {fileID: 2282937577596544255, guid: 3f67d94cef933e2478eeb97cb3f7d076, type: 3}
     container: {fileID: 1624045807}
     pool: []
-  - type: 8
+  - type: 9
     amount: 50
     prefab: {fileID: 5182163021499923868, guid: b6929963b36f88948bd2eaefe1001546, type: 3}
     container: {fileID: 473801041}
     pool: []
-  - type: 9
+  - type: 10
     amount: 10
     prefab: {fileID: 7094647705068227914, guid: 23d87929a1ffda54c8e073d274c3cf16, type: 3}
     container: {fileID: 606857811}
@@ -437,17 +437,17 @@ MonoBehaviour:
     prefab: {fileID: 4156922767784995158, guid: f720471a45b387547a73febe4fe658ef, type: 3}
     container: {fileID: 1624045807}
     pool: []
-  - type: 10
+  - type: 11
     amount: 5
     prefab: {fileID: 3521992776124482726, guid: b65f469e2414afa41a9527293c7a0bef, type: 3}
     container: {fileID: 1624045807}
     pool: []
-  - type: 11
+  - type: 12
     amount: 10
     prefab: {fileID: 7094647705068227914, guid: ba503565858266241a0fca6b6365ffe0, type: 3}
     container: {fileID: 606857811}
     pool: []
-  - type: 12
+  - type: 13
     amount: 5
     prefab: {fileID: 7094647705068227914, guid: 654220c95d6bb964aa84e3044fcb1d55, type: 3}
     container: {fileID: 606857811}
