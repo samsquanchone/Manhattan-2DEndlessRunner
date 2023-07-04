@@ -12,6 +12,7 @@ public class ShieldPickup : SpeedPickUp
 
     [SerializeField] int shieldRechargeTime;
 
+    
     private void FixedUpdate()
     {
         MovePickUp();
@@ -35,6 +36,7 @@ public class ShieldPickup : SpeedPickUp
     {
         if (collision.CompareTag("Player"))
         {
+            Events.Instance.OnTriggerStinger(this.pickUpType);
             shieldIsOn = true;
             playerAnimator.StopPlayback();
             playerAnimator.SetTrigger("TrShield");
