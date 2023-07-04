@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  m_poolType: 10
-  m_pickUpType: 3
+  m_poolType: 11
+  m_pickUpType: 4
   playerStats: {fileID: 0}
   shieldIsOn: 0
   shieldRechargeTime: 5

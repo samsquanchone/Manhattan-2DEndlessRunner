@@ -2432,6 +2432,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1199211343389495388, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
+      propertyPath: whiteholePrefab
+      value: 
+      objectReference: {fileID: 3287321245854491476, guid: ccfc5d85ae1754881a17bc1455794b7a, type: 3}
     - target: {fileID: 2670275404945586634, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -2581,10 +2585,10 @@ MonoBehaviour:
   playerBulletPrefab: {fileID: 832422983020512370, guid: a076ef5632131f549b869268b3d06fe0, type: 3}
   playerLazerPrefab: {fileID: 3867128672523570364, guid: 79635078422a1844eaf226f006bac0fa, type: 3}
   firePoints:
-  - {fileID: 799259533}
-  - {fileID: 1620189146}
+  - {fileID: 0}
+  - {fileID: 0}
   lazerFirePoint: {fileID: 0}
-  laserVFX: {fileID: 870399805}
+  laserVFX: {fileID: 0}
 --- !u!50 &1199211343389495386
 Rigidbody2D:
   serializedVersion: 4
@@ -2645,14 +2649,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  impactVFX: {fileID: 42077517}
-  Speed: 5
-  whiteholePrefab: {fileID: 3287321245854491476, guid: ccfc5d85ae1754881a17bc1455794b7a, type: 3}
---- !u!4 &1199211343389495391 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1199211341979012380, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
-  m_PrefabInstance: {fileID: 1199211343389495379}
-  m_PrefabAsset: {fileID: 0}
+  impactVFX: {fileID: 0}
+  Speed: 7
+  whiteholePrefab: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!1001 &1235042651945708891
 PrefabInstance:
   m_ObjectHideFlags: 0
