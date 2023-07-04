@@ -75,7 +75,6 @@ public class PlayerStats : MonoBehaviour
             if (transform.localScale.x >= 0.5f)
             {
                 Debug.Log("your out!");
-                Destroy(whiteholePrefab);
                 OutHole = false;
 
             }
@@ -139,6 +138,7 @@ public class PlayerStats : MonoBehaviour
 
     public void ActivateShield(float shieldTime)
     {
+        Debug.Log("Is shield getting activated?");
         playerAnimator.StopPlayback();
         playerAnimator.SetTrigger("TrShield");
         isShieldActive = true;
