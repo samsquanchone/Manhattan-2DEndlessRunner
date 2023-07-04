@@ -428,7 +428,7 @@ MonoBehaviour:
     container: {fileID: 473801041}
     pool: []
   - type: 9
-    amount: 20
+    amount: 10
     prefab: {fileID: 7094647705068227914, guid: 23d87929a1ffda54c8e073d274c3cf16, type: 3}
     container: {fileID: 606857811}
     pool: []
@@ -441,6 +441,16 @@ MonoBehaviour:
     amount: 5
     prefab: {fileID: 3521992776124482726, guid: b65f469e2414afa41a9527293c7a0bef, type: 3}
     container: {fileID: 1624045807}
+    pool: []
+  - type: 11
+    amount: 10
+    prefab: {fileID: 7094647705068227914, guid: ba503565858266241a0fca6b6365ffe0, type: 3}
+    container: {fileID: 606857811}
+    pool: []
+  - type: 12
+    amount: 5
+    prefab: {fileID: 7094647705068227914, guid: 654220c95d6bb964aa84e3044fcb1d55, type: 3}
+    container: {fileID: 606857811}
     pool: []
 --- !u!1 &214294605
 GameObject:
@@ -488,6 +498,8 @@ MonoBehaviour:
   - {fileID: 3521992776124482726, guid: b65f469e2414afa41a9527293c7a0bef, type: 3}
   ENEMYPrefabs:
   - {fileID: 7094647705068227914, guid: 23d87929a1ffda54c8e073d274c3cf16, type: 3}
+  - {fileID: 7094647705068227914, guid: ba503565858266241a0fca6b6365ffe0, type: 3}
+  - {fileID: 7094647705068227914, guid: 654220c95d6bb964aa84e3044fcb1d55, type: 3}
   spawnState: 0
   spawnTime: 5
 --- !u!4 &214294607
@@ -2221,7 +2233,7 @@ Transform:
   - {fileID: 915070459}
   - {fileID: 1519471399}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &189256930324512076
 PrefabInstance:
@@ -2350,7 +2362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199211341979012380, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1199211341979012380, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
       propertyPath: m_LocalPosition.x

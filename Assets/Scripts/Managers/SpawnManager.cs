@@ -58,7 +58,7 @@ public class SpawnManager : MonoBehaviour
 
                 case ObjectType.ENEMY:
                     i = Random.Range(0, ENEMYPrefabs.Count);
-                    _obj = PoolingManager.Instance.GetPoolObject(PoolingObjectType.Enemy);   //Get pooling enum that for respective astroid index
+                    _obj = PoolingManager.Instance.GetPoolObject(ENEMYPrefabs[i].GetComponent<Enemy>().poolType);   //Get pooling enum that for respective astroid index
                     _obj.transform.position = spawnPostitions[x].transform.position;
                     _obj.transform.rotation = ENEMYPrefabs[i].transform.rotation;
                     _obj.SetActive(true);
