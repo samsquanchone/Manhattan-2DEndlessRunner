@@ -36,27 +36,19 @@ public class ShieldPickup : SpeedPickUp
     {
         if (collision.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<PlayerStats>().ActivateShield(shieldRechargeTime);
             Events.Instance.OnTriggerStinger(this.pickUpType);
+            /*
             shieldIsOn = true;
             playerAnimator.StopPlayback();
             playerAnimator.SetTrigger("TrShield");
             Invoke(nameof(resetShield), shieldRechargeTime);
+            */
             DeletePickUp();
+            
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerAnimator = player.GetComponent<Animator>();
-        playerStats = player.GetComponent<PlayerStats>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+   
 
     private void resetShield()
     {
