@@ -7,11 +7,14 @@ public class WormholePickup : SpeedPickUp
 {
 
     public Rigidbody2D rb;
+    public Rigidbody2D playerRb;
     public float rotation = 0.0f;
+    public float PlayerScale = 0.0f;
 
     void start() {
 
         rb = GetComponent<Rigidbody2D>();
+        
 
     }
 
@@ -37,8 +40,23 @@ public class WormholePickup : SpeedPickUp
     {
         if (collision.tag == "Player")
         {
+            playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+
             Debug.Log("Entered black hole");
-            Events.Instance.OnTriggerStinger(this.pickUpType);
+
+            if (collision.transform.position.y > this.transform.position.y ) {
+                //player is above
+                Debug.Log("player is above");
+                playerRb.AddForce(new Vector3(0, -1.5f, 0), ForceMode2D.Impulse);
+            }
+            else {
+                //player is below
+                Debug.Log("player is below");
+                playerRb.AddForce(new Vector3(0, 1.5f, 0), ForceMode2D.Impulse);
+            }
+
+            collision.gameObject.GetComponent<PlayerStats>().InWormhole();
+
             //Power up player, then delete object
             int damage = Random.Range(-15, 15);
             collision.gameObject.GetComponent<PlayerStats>().PlayerHit(damage);
@@ -46,7 +64,7 @@ public class WormholePickup : SpeedPickUp
             // now need to deduct or add points
 
             UIManager.Instance.IncrementPoints(Random.Range(-100, 100));
-            PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
+            //poolingManager.Instance.CoolObject(this.gameObject, this.poolType);
 
         }
     }

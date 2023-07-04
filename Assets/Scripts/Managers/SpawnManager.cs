@@ -209,6 +209,11 @@ public class SpawnManager : MonoBehaviour
                 type = PoolingObjectType.ShieldPickup;
                 break;
 
+
+            case PickUpTypes.WHITEHOLE:
+                type = PoolingObjectType.WhiteHolePickUp;
+                break;
+
             default:
                 type = PoolingObjectType.HealthPickUp;
                 break;
