@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     //Variables
     public int points = 0;
 
-    private void Start()
+    private void Awake()
     {
         m_instance = this;  //Instantiate singleton
     }

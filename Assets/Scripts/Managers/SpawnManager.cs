@@ -17,11 +17,13 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] float spawnTime;
 
+    float difficultyTimer = 10;
+
     // Start is called before the first frame update
     void Start()
     {
         m_instance = this;
-        InvokeRepeating("StartSpawnTimer", 0.1f, 5f);
+        StartSpawnTimer();
     }
     public void StopRoutine()
     {
@@ -29,17 +31,31 @@ public class SpawnManager : MonoBehaviour
     }
     void StartSpawnTimer()
     {
-        StartCoroutine(SpawnTimer(environmentalHazardsPrefabs.Count));
+        StartCoroutine(SpawnTimer(spawnTime));
     }
 
-    IEnumerator SpawnTimer(int poolSize)
+    private void Update()
     {
-        yield return new WaitForSeconds(0.1f);
+        difficultyTimer -= Time.deltaTime;
+        if (difficultyTimer <= 0 && spawnTime > 1.1f)
+        {
+            Debug.Log("Difficulty ramp");
+            BackgroundLooper.Instance.ChangePerSpeed(0.025f);
+            spawnTime -= 0.1f; 
+            difficultyTimer = 10;
+        }
+    }
+
+
+    IEnumerator SpawnTimer(float spawnTime)
+    {
+        
+        yield return new WaitForSeconds(Random.Range( spawnTime - 1, spawnTime)); //Should use tunrary operator here to ensure min spawn time cannont be set below 0
 
         if (spawnState == SpawnState.NORMAL)
         {
 
-            int i = Random.Range(0, poolSize); //Object index
+            int i = 0; //Object index
             int x = Random.Range(0, spawnPostitions.Count); //Spawn pos index
 
             ObjectType spawnType = (ObjectType)Random.Range(0, System.Enum.GetNames(typeof(ObjectType)).Length); //Get random index from enum 
@@ -49,6 +65,7 @@ public class SpawnManager : MonoBehaviour
             switch (spawnType)
             {
                 case ObjectType.ENVIRONMENTALHAZARD:
+                     i = Random.Range(0, environmentalHazardsPrefabs.Count);
                     _obj = PoolingManager.Instance.GetPoolObject(GetEnvironmentalHazardToSpawn(i));   //Get pooling enum that for respective astroid index
                     _obj.transform.position = spawnPostitions[x].transform.position;
                     _obj.transform.rotation = environmentalHazardsPrefabs[i].transform.rotation;
@@ -81,6 +98,8 @@ public class SpawnManager : MonoBehaviour
 
             }
         }
+
+        StartSpawnTimer();
     }
 
 

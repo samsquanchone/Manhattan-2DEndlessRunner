@@ -7,7 +7,7 @@ public class BackgroundLooper : MonoBehaviour
     public static BackgroundLooper Instance => m_instance;
     private static BackgroundLooper m_instance;
 
-    const float intialSpeed = 0.1f;
+    float intialSpeed = 0.1f;
 
     private float speed;
     [SerializeField] Renderer backgroudRenderer;
@@ -29,6 +29,13 @@ public class BackgroundLooper : MonoBehaviour
     public void ChangeSpeed(int val)
     {
         speed = val;
+    }
+
+    public void ChangePerSpeed(float amount)
+    {
+        intialSpeed += amount;
+        speed = intialSpeed;
+
     }
 
     public void ResetSpeed()
