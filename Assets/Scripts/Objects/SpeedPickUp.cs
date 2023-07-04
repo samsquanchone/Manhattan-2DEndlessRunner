@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PickUpTypes { SPEED, HEALTH, WORMHOLE }
+public enum PickUpTypes { SPEED, HEALTH, WORMHOLE, WHITEHOLE}
 
 
 public interface PickUpBase
