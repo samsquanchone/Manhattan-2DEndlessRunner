@@ -16,9 +16,10 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
 
-        UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
+       
         isHit = false;
         shieldPickup = shield.GetComponent<ShieldPickup>();
+        UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
     }
 
     public void PlayerHit(int damage)
