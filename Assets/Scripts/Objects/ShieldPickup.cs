@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShieldPickup : SpeedPickUp
 {
     private Animator playerAnimator;
+    private GameObject player;
+    public PlayerStats playerStats;
 
     public bool shieldIsOn;
 

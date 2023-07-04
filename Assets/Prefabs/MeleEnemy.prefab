@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7094647705068227913}
   - component: {fileID: 8698349884307562283}
   - component: {fileID: 5114028313612876841}
-  - component: {fileID: 3628722780943639712}
+  - component: {fileID: -5481500285516939205}
   m_Layer: 0
   m_Name: MeleEnemy
   m_TagString: Enemy
@@ -147,7 +147,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3628722780943639712
+--- !u!114 &-5481500285516939205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,27 +156,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7094647705068227914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b384c2fa61c2d44c9d6bd08b6921626, type: 3}
+  m_Script: {fileID: 11500000, guid: d73e37c36a7e30f4eb92660378002381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_poolType: 13
-  impactVFX: {fileID: 4873330720936822324, guid: 5b2faba7aaaa0e946a1d366910bc150f, type: 3}
+  impactVFX: {fileID: 0}
   enemyPrefab: {fileID: 7094647705068227914}
-  health: 60
-  points: 60
-  moveSpeed: 4
+  health: 100
+  points: 100
+  moveSpeed: 8
   followSpeed: 6
   engagementPositions:
-  - {fileID: 3402804951565668240, guid: d79cd95d822692e43bd1c0462b264953, type: 3}
   - {fileID: 189256929768670461, guid: 642d91ebf321af346b8b5f68fd53aa88, type: 3}
-  - {fileID: 8327904734410631136, guid: 009034d8b9c1ef846b2feaff4a6d330b, type: 3}
+  - {fileID: 3402804951565668240, guid: d79cd95d822692e43bd1c0462b264953, type: 3}
   - {fileID: 9201564554832459406, guid: 27e8f80309b5b1c47a08f23c9284896d, type: 3}
+  - {fileID: 8327904734410631136, guid: 009034d8b9c1ef846b2feaff4a6d330b, type: 3}
   playerPosition: {fileID: 0}
   minShotCooldown: 0
   maxShotCooldown: 0
   firePoint: {fileID: 0}
   bullet: {fileID: 0}
-  meleDamage: 60
+  meleDamage: 50
 --- !u!1 &8087855682223746533
 GameObject:
   m_ObjectHideFlags: 0
