@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_poolType: 13
-  impactVFX: {fileID: 0}
+  impactVFX: {fileID: 4873330720936822324, guid: 5b2faba7aaaa0e946a1d366910bc150f, type: 3}
   enemyPrefab: {fileID: 7094647705068227914}
   health: 100
   points: 100

@@ -52,8 +52,9 @@ public class ShieldPickup : SpeedPickUp
 
     private void resetShield()
     {
-        shieldIsOn = false;
+        
         playerAnimator.StopPlayback();
         playerAnimator.SetTrigger("TrNorm");
+        shieldIsOn = false;
     }
 }
