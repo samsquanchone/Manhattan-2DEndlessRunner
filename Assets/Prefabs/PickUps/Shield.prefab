@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3521992776124482723}
   - component: {fileID: 3521992776124482724}
   - component: {fileID: 3521992776124482722}
-  - component: {fileID: 3718502636987995746}
+  - component: {fileID: 2125028075400215348}
   m_Layer: 0
   m_Name: Shield
   m_TagString: PickUp
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3718502636987995746
+--- !u!114 &2125028075400215348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,12 +121,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3521992776124482726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f7593dfe0e4af4f91d431f7e6dee85, type: 3}
+  m_Script: {fileID: 11500000, guid: b3d30998f8ff2bc46bc4c368090cc9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4
   m_poolType: 11
   m_pickUpType: 4
-  playerStats: {fileID: 0}
   shieldIsOn: 0
-  shieldRechargeTime: 5
+  shieldRechargeTime: 25
