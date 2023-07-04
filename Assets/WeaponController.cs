@@ -62,7 +62,6 @@ public class WeaponController : MonoBehaviour
     {   if(isLazerCool)
         laserVFX.Play();
         StartCoroutine("ChannelLazer");
-        Debug.Log("SecondaryLazer Fired");
     }
 
     IEnumerator DisableWeaponFlash()
