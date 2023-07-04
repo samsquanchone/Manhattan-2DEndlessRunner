@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 3521992776124482723}
   - component: {fileID: 3521992776124482724}
   - component: {fileID: 3521992776124482722}
+<<<<<<< Updated upstream
   - component: {fileID: 6641562856303504398}
+=======
+  - component: {fileID: 5421247186173005930}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Shield
   m_TagString: PickUp
@@ -112,7 +116,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+<<<<<<< Updated upstream
 --- !u!114 &6641562856303504398
+=======
+--- !u!114 &5421247186173005930
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,8 +133,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+<<<<<<< Updated upstream
   m_poolType: 10
   m_pickUpType: 3
+=======
+  m_poolType: 11
+  m_pickUpType: 4
+>>>>>>> Stashed changes
   playerStats: {fileID: 0}
   shieldIsOn: 0
   shieldRechargeTime: 15
