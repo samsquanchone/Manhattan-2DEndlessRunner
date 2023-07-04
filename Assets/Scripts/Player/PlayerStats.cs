@@ -13,6 +13,10 @@ public class PlayerStats : MonoBehaviour
 
     public GameObject whiteholePrefab;
 
+
+    private Animator playerAnimator;
+    private GameObject player;
+
     Renderer visual;
 
     bool InHole = false;
@@ -23,12 +27,16 @@ public class PlayerStats : MonoBehaviour
     public GameObject shield;
     private ShieldPickup shieldPickup;
 
+    bool isShieldActive = false;
+
     private void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerAnimator = player.GetComponent<Animator>();
        
+
         isHit = false;
-        shieldPickup = shield.GetComponent<ShieldPickup>();
+       /// shieldPickup = GameObject.Find("Shield").GetComponent<ShieldPickup>();
         UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
         visual = GetComponent<Renderer>();
         visual.enabled = true;
@@ -76,7 +84,7 @@ public class PlayerStats : MonoBehaviour
 
     public void PlayerHit(int damage)
     {
-        if (shieldPickup.shieldIsOn == false)
+        if (!isShieldActive)
         {
        
             impactVFX.Play();
@@ -127,6 +135,22 @@ public class PlayerStats : MonoBehaviour
         //whiteholePrefab.transform.position = spawnPos;
         InHole = false;
 
+    }
+
+    public void ActivateShield(float shieldTime)
+    {
+        playerAnimator.StopPlayback();
+        playerAnimator.SetTrigger("TrShield");
+        isShieldActive = true;
+        StartCoroutine(ShieldTimer(shieldTime));
+    }
+
+    IEnumerator ShieldTimer(float shieldTime)
+    {
+        yield return new WaitForSeconds(shieldTime);
+        playerAnimator.StopPlayback();
+        playerAnimator.SetTrigger("TrNorm");
+        isShieldActive = false;
     }
 
     IEnumerator WhiteholeTime () { // this is on a seperate thread (coroutine)
