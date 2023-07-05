@@ -71,13 +71,14 @@ public class PlayerStats : MonoBehaviour
             Vector3 newScale = Vector3.Lerp(transform.localScale, new Vector3(5, 5, 0), Speed * Time.deltaTime);
             transform.localScale = newScale;
 
-            if (transform.localScale.x == 5f)
+            if (transform.localScale.x >= 5f)
             {
                 Debug.Log("your out!");
                 OutHole = false;
-                canShoot = true;
+              
 
             }
+            canShoot = true;
         }
     }
 
