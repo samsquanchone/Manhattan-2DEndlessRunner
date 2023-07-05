@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         //Stop spawning, stop time, show score, provide reset button 
         isPlaying = false;
+        UIManager.Instance.SetEndScore();
         SpawnManager.Instance.StopRoutine();
         UIManager.Instance.DeActivateGameUI();
         SceneManager.LoadScene(2);

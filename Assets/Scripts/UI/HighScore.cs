@@ -10,7 +10,17 @@ public class HighScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pointsText.text = "Highscore: " + UIManager.Instance.points;
+
+        if (ScoreHolder.GetScore() > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", ScoreHolder.GetScore());
+            pointsText.text = "New High Score: " + UIManager.Instance.points;
+        }
+
+        else
+        {
+            pointsText.text = "High Score: " + PlayerPrefs.GetInt("HighScore");
+        }
     }
 
 }

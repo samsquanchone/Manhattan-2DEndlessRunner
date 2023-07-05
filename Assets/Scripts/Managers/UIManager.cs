@@ -25,6 +25,13 @@ public class UIManager : MonoBehaviour
         CalculateTime();
     }
 
+    public void SetEndScore()
+    {
+        
+        
+        ScoreHolder.HoldScore(points);
+    }
+
     public void DeActivateGameUI()
     {
         healthText.gameObject.SetActive(false);
