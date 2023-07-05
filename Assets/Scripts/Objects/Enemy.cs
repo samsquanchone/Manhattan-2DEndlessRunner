@@ -25,12 +25,19 @@ public class Enemy : MonoBehaviour, IEnemy
 {
     public PoolingObjectType m_poolType;
     public PoolingObjectType poolType
+    
+
     {
         get
         {
             return m_poolType;
         }
     }
+
+    public Animator anim;
+
+    private bool IsDead = false;
+
     [SerializeField] protected VisualEffect impactVFX;
     [SerializeField] protected GameObject enemyPrefab;
     [SerializeField] protected int health;
@@ -53,6 +60,10 @@ public class Enemy : MonoBehaviour, IEnemy
 
     void Start()
     {
+        
+        anim = GetComponent<Animator>();
+        anim.SetBool("isDead", false);
+
         Invoke(nameof(Shoot), 1f);
         playerPosition = GameObject.Find("Player").transform;
 
@@ -127,12 +138,20 @@ public class Enemy : MonoBehaviour, IEnemy
     public void Damaged(int damage)
     {
         impactVFX.Play();
+        if (IsDead == false) { // using this var to prevent further animations 
+            anim.Play("Enemy1_hit");
+        }
+        
         health -= damage;
         if (health <= 0)
         {
-            health = initialHealth; // as we are not deleting the objects, just de-activiating them, we cant rely on on Start
-            UIManager.Instance.IncrementPoints(points);
-            PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
+            Debug.Log("Enemy Dead");
+            if (IsDead == false) {
+                anim.Play("Enemy1_dead");
+            }
+            
+            IsDead = true; 
+            StartCoroutine("DeathTime");
         }
     }
 
@@ -144,9 +163,19 @@ public class Enemy : MonoBehaviour, IEnemy
             //Damage astroid
             Debug.Log("eNEMY HIUT");
             Damaged(collision.gameObject.GetComponent<Bullet>().Damage());
-
-
+            
         }
+    }
+
+    IEnumerator DeathTime()
+    { // this is on a seperate thread (coroutine)
+
+        yield return new WaitForSeconds(0.3f);
+        health = initialHealth; // as we are not deleting the objects, just de-activiating them, we cant rely on on Start
+        UIManager.Instance.IncrementPoints(points);
+        PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
+        IsDead = false;
+
     }
 }
 
