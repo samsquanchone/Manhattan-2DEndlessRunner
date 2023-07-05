@@ -162,6 +162,6 @@ public class PlayerStats : MonoBehaviour
         SpawnWhitehole();
 
 
-    } 
+    }
 
 }

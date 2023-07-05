@@ -176,7 +176,7 @@ MonoBehaviour:
   maxShotCooldown: 0
   firePoint: {fileID: 0}
   bullet: {fileID: 0}
-  meleDamage: 50
+  meleDamage: 60
 --- !u!1 &8087855682223746533
 GameObject:
   m_ObjectHideFlags: 0
