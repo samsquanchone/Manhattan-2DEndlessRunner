@@ -27,8 +27,6 @@ public class UIManager : MonoBehaviour
 
     public void SetEndScore()
     {
-        
-        
         ScoreHolder.HoldScore(points);
     }
 

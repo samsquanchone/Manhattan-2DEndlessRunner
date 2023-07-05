@@ -23,11 +23,15 @@ public class PlayerInput : MonoBehaviour
 
     [SerializeField] VisualEffect laserVFX;
 
+
+    private PlayerStats playerStats;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>(); //Find RB on gameObj and set as var 
         playerWepController = GetComponent<WeaponController>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -40,7 +44,7 @@ public class PlayerInput : MonoBehaviour
 
     public void OnShootPrimary(InputAction.CallbackContext context)
     {
-        if (context.performed) //Ensures no multi-triggers
+        if (context.performed && playerStats.CanPlayerShoot()) //Ensures no multi-triggers
         {
             playerWepController.FirePrimaryWeapon();
         }
@@ -48,7 +52,7 @@ public class PlayerInput : MonoBehaviour
 
     public void OnShootSecondary(InputAction.CallbackContext context)
     {
-        if (context.performed) //Ensures no multi-triggers
+        if (context.performed && playerStats.CanPlayerShoot()) //Ensures no multi-triggers
         {
             playerWepController.FireSecondaryWeapon();
         }

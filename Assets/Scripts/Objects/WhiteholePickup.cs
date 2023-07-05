@@ -25,6 +25,7 @@ public class WhiteholePickup : SpeedPickUp
         this.MovePickUp();
         if (this.transform.position.x <= -7.5) {
             PlayerStats.OutWormhole();
+            PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
         }
     }
 
