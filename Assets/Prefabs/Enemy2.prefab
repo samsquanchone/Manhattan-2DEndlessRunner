@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_poolType: 12
-  anim: {fileID: 0}
+  anim: {fileID: 7094647705068227913}
   impactVFX: {fileID: 1122346904351611898}
   enemyPrefab: {fileID: 7094647705068227914}
   health: 80

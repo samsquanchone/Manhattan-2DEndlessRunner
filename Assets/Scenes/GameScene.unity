@@ -516,7 +516,6 @@ MonoBehaviour:
   - {fileID: 2282937577596544255, guid: 3f67d94cef933e2478eeb97cb3f7d076, type: 3}
   - {fileID: 3521992776124482726, guid: 930932ee685cb8042a3d596ce5f62608, type: 3}
   - {fileID: 3521992776124482726, guid: 3a05037ed0481a14d8cee1f2d5e91592, type: 3}
-  - {fileID: 3287321245854491476, guid: ccfc5d85ae1754881a17bc1455794b7a, type: 3}
   ENEMYPrefabs:
   - {fileID: 7094647705068227914, guid: 23d87929a1ffda54c8e073d274c3cf16, type: 3}
   - {fileID: 7094647705068227914, guid: 96c824b97461fcc4ea91b9ac8ac2978d, type: 3}
@@ -1167,7 +1166,7 @@ Transform:
   m_Children:
   - {fileID: 1875996337}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &751335724 stripped
 Transform:
@@ -1313,11 +1312,6 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3402804951565668240, guid: d79cd95d822692e43bd1c0462b264953, type: 3}
   m_PrefabInstance: {fileID: 3402804951876489835}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &940953513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1199211342172521093, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
-  m_PrefabInstance: {fileID: 1199211343389495379}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1011568500 stripped
 Transform:
@@ -1626,7 +1620,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1470948580
 MonoBehaviour:
@@ -2555,7 +2549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199211341979012380, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1199211341979012380, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
       propertyPath: m_LocalScale.x
@@ -2678,7 +2672,7 @@ MonoBehaviour:
   playerLazerPrefab: {fileID: 150969620}
   firePoints:
   - {fileID: 2146118704}
-  - {fileID: 940953513}
+  - {fileID: 576096659}
   lazerFirePoint: {fileID: 150969623}
   lazerCooldownTime: 10
   laserVFX: {fileID: 150969621}
