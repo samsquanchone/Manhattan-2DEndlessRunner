@@ -16,6 +16,8 @@ public class MeleeEnemy : Enemy
         health = initialHealth;
 
         enemyState = EnemyState.Moving;
+
+        Events.Instance.OnTriggerStinger(this.poolType);
     }
 
     protected override void Update() //Override this on inheriting, can use this functionality, as well as extending it 
