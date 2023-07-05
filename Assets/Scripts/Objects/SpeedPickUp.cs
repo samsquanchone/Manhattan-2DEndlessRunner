@@ -79,7 +79,7 @@ public class SpeedPickUp : MonoBehaviour, PickUpBase
     {
         if (collision.tag == "Player")
         {
-            Events.Instance.OnTriggerStinger(this.pickUpType);
+            Events.Instance.OnTriggerStinger(this.poolType);
             PowerUp();
         }
     }

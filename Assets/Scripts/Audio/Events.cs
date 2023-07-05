@@ -45,24 +45,41 @@ public class Events : MonoBehaviour, Manhattan.Listener {
         keyReset.interactable = false;
     }
 
-    public void OnTriggerStinger(PickUpTypes pickUpTypes)
+    public void OnTriggerEnemySpawnSound()
     {
-        switch(pickUpTypes)
+        
+    }
+    public void OnTriggerStinger(PoolingObjectType poolingObject)
+    {
+        switch(poolingObject)
         {
-            case PickUpTypes.SPEED:
-                Debug.Log("Triggering: " + pickUpTypes.ToString() + "  Stinger");
+            case PoolingObjectType.SpeedPickUp:
+                Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+
                 break;
 
-            case PickUpTypes.HEALTH:
-                Debug.Log("Triggering: " + pickUpTypes.ToString() + "  Stinger");
+            case PoolingObjectType.HealthPickUp:
+                Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
                 break;
 
-            case PickUpTypes.WORMHOLE:
-                Debug.Log("Triggering: " + pickUpTypes.ToString() + "  Stinger");
+            case PoolingObjectType.WormHolePickUp:
+                Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
                 break;
 
-            case PickUpTypes.SHIELD:
-                Debug.Log("Triggering: " + pickUpTypes.ToString() + "  Stinger");
+            case PoolingObjectType.ShieldPickup:
+                Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                break;
+
+            case PoolingObjectType.Enemy:
+                Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                break;
+
+            case PoolingObjectType.Enemy2:
+                Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                break;
+
+            case PoolingObjectType.MeleeEnemy:
+                Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
                 break;
 
         }

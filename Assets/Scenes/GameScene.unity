@@ -634,7 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OutputLevel: 0.5
   PlaybackMode: 0
-  Filename: Cavestory.zmu
+  Filename: NewCavestory.zmu
   AutoPlay: 1
   DebugOutput: 0
   Listeners:
@@ -2313,7 +2313,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &2004475930

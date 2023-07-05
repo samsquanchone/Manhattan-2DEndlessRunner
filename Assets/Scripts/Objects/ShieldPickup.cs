@@ -37,7 +37,7 @@ public class ShieldPickup : SpeedPickUp
         if (collision.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerStats>().ActivateShield(shieldRechargeTime);
-            Events.Instance.OnTriggerStinger(this.pickUpType);
+            Events.Instance.OnTriggerStinger(this.poolType);
             /*
             shieldIsOn = true;
             playerAnimator.StopPlayback();

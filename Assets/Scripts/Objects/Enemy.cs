@@ -59,6 +59,8 @@ public class Enemy : MonoBehaviour, IEnemy
         engagementPositionIndex = Random.Range(0, engagementPositions.Count);
 
         health = initialHealth;
+
+        Events.Instance.OnTriggerStinger(this.poolType);
     }
 
     protected virtual void Update() //Override this on inheriting, can use this functionality, as well as extending it 
