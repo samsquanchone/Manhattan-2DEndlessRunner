@@ -29,34 +29,34 @@ public class PlayerStats : MonoBehaviour
 
     bool isShieldActive = false;
 
+    bool canShoot = true;
+
+    Transform originTransform;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerAnimator = player.GetComponent<Animator>();
-       
 
+        originTransform = this.transform;
         isHit = false;
+        InHole = false;
        /// shieldPickup = GameObject.Find("Shield").GetComponent<ShieldPickup>();
         UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
         visual = GetComponent<Renderer>();
         visual.enabled = true;
+        canShoot = true;
     }
 
     private void LateUpdate() {
         if (InHole) {
-            
-            
 
-            //newScale = this.transform.localScale;
-            
+
             
             Vector3 newScale = Vector3.Lerp(transform.localScale, new Vector3(0.05f, 0.05f, 0), Speed * Time.deltaTime);
             transform.localScale = newScale;
-      
-
-            
 
             if (transform.localScale.x <= 0.2f) {
+                canShoot = false;
                 Debug.Log("spawn white hole");
                 visual.enabled = false;
                 StartCoroutine("WhiteholeTime");
@@ -68,15 +68,14 @@ public class PlayerStats : MonoBehaviour
         if (OutHole) {
             Debug.Log("Scaling!!!!!");
             visual.enabled = true;
-            transform.position = new Vector3(-7.1f, 0.0f, 0.0f);
             Vector3 newScale = Vector3.Lerp(transform.localScale, new Vector3(5, 5, 0), Speed * Time.deltaTime);
             transform.localScale = newScale;
 
-            if (transform.localScale.x >= 0.5f)
+            if (transform.localScale.x == 5f)
             {
                 Debug.Log("your out!");
-                Destroy(whiteholePrefab);
                 OutHole = false;
+                canShoot = true;
 
             }
         }
@@ -124,15 +123,19 @@ public class PlayerStats : MonoBehaviour
     public void OutWormhole () {
         OutHole = true;
     }
+    
+    public bool CanPlayerShoot()
+    {
+        bool can = canShoot;
 
+        return can;
+    }
     public void SpawnWhitehole () {
         // have a reference
-        Debug.Log("Spawn white hole");
-        Instantiate(whiteholePrefab, this.transform, true);
-        //whiteholePrefab.transform.SetParent(null);
-        //Vector3 spawnPos = new Vector3(-7.0f, this.transform.position.y, -7.7f);
-        //whiteholePrefab.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        //whiteholePrefab.transform.position = spawnPos;
+        GameObject _obj = PoolingManager.Instance.GetPoolObject(PoolingObjectType.WhiteHolePickUp);   //Get pooling enum that for respective astroid index
+        _obj.transform.position = new Vector3(-7.0f, this.transform.position.y, -7.7f);
+        _obj.transform.rotation = _obj.transform.rotation;
+        _obj.SetActive(true);
         InHole = false;
 
     }
