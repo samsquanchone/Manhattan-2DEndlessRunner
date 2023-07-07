@@ -75,16 +75,38 @@ public class Events : MonoBehaviour, Manhattan.Listener {
 
             case PoolingObjectType.Enemy:
                 Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("[19:].channel.mute = 0");
                 break;
 
             case PoolingObjectType.Enemy2:
                 Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("[20:].channel.mute = 0");
                 break;
 
             case PoolingObjectType.MeleeEnemy:
                 Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("[21:].channel.mute = 0");
                 break;
 
+        }
+    }
+
+    public void OnStopStinger(PoolingObjectType poolingObject) {
+        switch (poolingObject) {
+            case PoolingObjectType.Enemy:
+                Debug.Log("Stopping: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("[19:].channel.mute = 1");
+                break;
+
+            case PoolingObjectType.Enemy2:
+                Debug.Log("Stopping: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("[20:].channel.mute = 1");
+                break;
+
+            case PoolingObjectType.MeleeEnemy:
+                Debug.Log("Stopping: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("[21:].channel.mute = 1");
+                break;
         }
     }
 
