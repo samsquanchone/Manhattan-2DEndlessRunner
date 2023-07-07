@@ -77,6 +77,7 @@ public class MeleeEnemy : Enemy
             health = initialHealth; // as we are not deleting the objects, just de-activiating them, we cant rely on on Start
             UIManager.Instance.IncrementPoints(points);
             PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
+            Events.Instance.OnStopStinger(this.poolType);
         }
     }
 
@@ -97,8 +98,14 @@ public class MeleeEnemy : Enemy
             //Damage astroid
             Debug.Log("Player meleed");
             collision.gameObject.GetComponent<PlayerStats>().PlayerHit(meleDamage);
-
+            Events.Instance.OnStopStinger(this.poolType);
             PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
         }
     }
+
+    void OnEnable()
+    {
+        Events.Instance.OnTriggerStinger(this.poolType);
+    }
+
 }
