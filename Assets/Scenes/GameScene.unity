@@ -176,7 +176,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.273
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -225,11 +225,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &150969620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2670275404945586634, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
-  m_PrefabInstance: {fileID: 1199211343389495379}
-  m_PrefabAsset: {fileID: 0}
 --- !u!2083052967 &150969621 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 2670275404945586632, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
@@ -429,7 +424,7 @@ MonoBehaviour:
     pool: []
   - type: 5
     amount: 5
-    prefab: {fileID: 3521992776124482726, guid: 151d25b1e70f314468f09a3e0ff7f728, type: 3}
+    prefab: {fileID: 3521992776124482726, guid: 652cbfb0f8e44403caa62cac868c86fb, type: 3}
     container: {fileID: 1624045807}
     pool: []
   - type: 7
@@ -454,17 +449,17 @@ MonoBehaviour:
     pool: []
   - type: 11
     amount: 5
-    prefab: {fileID: 3521992776124482726, guid: 3a05037ed0481a14d8cee1f2d5e91592, type: 3}
+    prefab: {fileID: 3521992776124482726, guid: 13827aa5ac6c34621a924f073dd07cd7, type: 3}
     container: {fileID: 1624045807}
     pool: []
   - type: 12
     amount: 10
-    prefab: {fileID: 7094647705068227914, guid: 96c824b97461fcc4ea91b9ac8ac2978d, type: 3}
+    prefab: {fileID: 7094647705068227914, guid: a9948845353944dca9f12d491817c5d7, type: 3}
     container: {fileID: 606857811}
     pool: []
   - type: 13
     amount: 5
-    prefab: {fileID: 7094647705068227914, guid: ce18942dbce112f4599b42c1eaf01d63, type: 3}
+    prefab: {fileID: 7094647705068227914, guid: 562d25fa5fb80452bb32d0b0af910772, type: 3}
     container: {fileID: 606857811}
     pool: []
   - type: 8
@@ -524,14 +519,14 @@ MonoBehaviour:
   - {fileID: 5639656631292893845, guid: 804f535dd62877d4cae913ed24bbc9f5, type: 3}
   - {fileID: 5639656631292893845, guid: b14c38cde45db7242b079b255487a9ee, type: 3}
   pickUpPrefabs:
-  - {fileID: 3521992776124482726, guid: 151d25b1e70f314468f09a3e0ff7f728, type: 3}
+  - {fileID: 3521992776124482726, guid: 652cbfb0f8e44403caa62cac868c86fb, type: 3}
   - {fileID: 2282937577596544255, guid: 3f67d94cef933e2478eeb97cb3f7d076, type: 3}
   - {fileID: 3521992776124482726, guid: 930932ee685cb8042a3d596ce5f62608, type: 3}
-  - {fileID: 3521992776124482726, guid: 3a05037ed0481a14d8cee1f2d5e91592, type: 3}
+  - {fileID: 3521992776124482726, guid: 13827aa5ac6c34621a924f073dd07cd7, type: 3}
   ENEMYPrefabs:
   - {fileID: 7094647705068227914, guid: 23d87929a1ffda54c8e073d274c3cf16, type: 3}
-  - {fileID: 7094647705068227914, guid: 96c824b97461fcc4ea91b9ac8ac2978d, type: 3}
-  - {fileID: 7094647705068227914, guid: ce18942dbce112f4599b42c1eaf01d63, type: 3}
+  - {fileID: 7094647705068227914, guid: a9948845353944dca9f12d491817c5d7, type: 3}
+  - {fileID: 7094647705068227914, guid: 562d25fa5fb80452bb32d0b0af910772, type: 3}
   spawnState: 0
   spawnTime: 5
 --- !u!4 &214294607
@@ -666,7 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OutputLevel: 0.5
   PlaybackMode: 0
-  Filename: NewCavestory.zmu
+  Filename: WithStingers.zmu
   AutoPlay: 1
   DebugOutput: 0
   Listeners:
@@ -2647,6 +2642,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1199211341979012382, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
   m_PrefabInstance: {fileID: 1199211343389495379}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1199211343389495381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2670275404945586634, guid: cfdafd8b1c83891439fce95ecd81ef97, type: 3}
+  m_PrefabInstance: {fileID: 1199211343389495379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &1199211343389495386
 Rigidbody2D:
   serializedVersion: 4
@@ -2677,11 +2677,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1199211343389495380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ea7ce0efa2b9af46b327ec8c14f23c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 24597d4c264c847a6b8bbfa5c61d3a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerBulletPrefab: {fileID: 832422983020512370, guid: a076ef5632131f549b869268b3d06fe0, type: 3}
-  playerLazerPrefab: {fileID: 150969620}
+  playerLazerPrefab: {fileID: 1199211343389495381}
   firePoints:
   - {fileID: 2146118704}
   - {fileID: 576096659}

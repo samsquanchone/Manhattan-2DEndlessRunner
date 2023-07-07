@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3521992776124482723}
   - component: {fileID: 3521992776124482724}
   - component: {fileID: 3521992776124482722}
-  - component: {fileID: 5427648387403537108}
+  - component: {fileID: 8940697778000273514}
   m_Layer: 0
   m_Name: Shield
   m_TagString: PickUp
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1e510e52411239943adafa83b792a923, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7dbf7838390c94c5b88e13d267ac8815, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.516385, y: 5.0200796}
   m_EdgeRadius: 0
---- !u!114 &5427648387403537108
+--- !u!114 &8940697778000273514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3521992776124482726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67b54a0d2ef71b4459c5f5ba88788493, type: 3}
+  m_Script: {fileID: 11500000, guid: 42d90a35d0f4f4af999bba3b07a09ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
@@ -129,4 +129,4 @@ MonoBehaviour:
   m_pickUpType: 4
   playerStats: {fileID: 0}
   shieldIsOn: 0
-  shieldRechargeTime: 10
+  shieldRechargeTime: 0

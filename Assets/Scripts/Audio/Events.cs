@@ -55,11 +55,13 @@ public class Events : MonoBehaviour, Manhattan.Listener {
         {
             case PoolingObjectType.SpeedPickUp:
                 Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("Play(@Speed)");
 
                 break;
 
             case PoolingObjectType.HealthPickUp:
                 Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("Play(@Health)");
                 break;
 
             case PoolingObjectType.WormHolePickUp:
@@ -68,6 +70,7 @@ public class Events : MonoBehaviour, Manhattan.Listener {
 
             case PoolingObjectType.ShieldPickup:
                 Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("Play(@Shield)");
                 break;
 
             case PoolingObjectType.Enemy:
