@@ -75,6 +75,7 @@ public class MeleeEnemy : Enemy
         health -= damage;
         if (health <= 0)
         {
+            anim.Play("Enemy1_dead");
             health = initialHealth; // as we are not deleting the objects, just de-activiating them, we cant rely on on Start
             UIManager.Instance.IncrementPoints(points);
             PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
@@ -88,7 +89,7 @@ public class MeleeEnemy : Enemy
         if (collision.CompareTag("Bullet"))
         {
             //Damage astroid
-            Debug.Log("eNEMY HIUT");
+            
             Damaged(collision.gameObject.GetComponent<Bullet>().Damage());
 
 
@@ -97,7 +98,7 @@ public class MeleeEnemy : Enemy
         else if (collision.CompareTag("Player"))
         {
             //Damage astroid
-            Debug.Log("Player meleed");
+          
             collision.gameObject.GetComponent<PlayerStats>().PlayerHit(meleDamage);
             Events.Instance.OnStopStinger(this.poolType);
             PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);

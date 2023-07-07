@@ -160,8 +160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_poolType: 13
-  anim: {fileID: 0}
+  anim: {fileID: 7094647705068227913}
   health: 60
+  initialHealth: 0
   points: 60
   moveSpeed: 7
   followSpeed: 4
