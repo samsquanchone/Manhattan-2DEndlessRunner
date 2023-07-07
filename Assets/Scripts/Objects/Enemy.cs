@@ -38,9 +38,9 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private bool IsDead = false;
 
-    [SerializeField] protected VisualEffect impactVFX;
+    protected VisualEffect impactVFX;
     [SerializeField] protected int health;
-    protected const int initialHealth = 50;
+    [SerializeField] protected int initialHealth;
 
     [SerializeField] protected int points;
     [SerializeField] protected float moveSpeed;
@@ -59,18 +59,25 @@ public class Enemy : MonoBehaviour, IEnemy
 
     void Start()
     {
-        
         anim = GetComponent<Animator>();
         anim.SetBool("isDead", false);
-
-        Invoke(nameof(Shoot), 1f);
+        
+        impactVFX = GetComponentInChildren<VisualEffect>();
+        
         playerPosition = GameObject.Find("Player").transform;
+   
+    }
+    
+    void OnEnable()
+    {
+        this.initialHealth = health;
+        this.engagementPositionIndex = Random.Range(0, engagementPositions.Count);
+        this.Invoke(nameof(Shoot), 1f);
+    }
 
-        engagementPositionIndex = Random.Range(0, engagementPositions.Count);
-
+    void OnDisable()
+    {
         health = initialHealth;
-
-        Events.Instance.OnTriggerStinger(this.poolType);
     }
 
     protected virtual void Update() //Override this on inheriting, can use this functionality, as well as extending it 
@@ -101,6 +108,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void EngageEnemy()
     {
+        
         float step = followSpeed * Time.deltaTime;
 
         Vector3 newYPos = new Vector3(0, playerPosition.position.y, 0);   // Disregard the player's x and z position.
@@ -110,7 +118,7 @@ public class Enemy : MonoBehaviour, IEnemy
     }
     private void ShotCooldown()
     {
-
+        if(this.gameObject.activeSelf)
         StartCoroutine("EnemyShotTimer");
         
     }

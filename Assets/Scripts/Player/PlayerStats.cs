@@ -86,7 +86,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (!isShieldActive)
         {
-       
+            
             impactVFX.Play();
             health -= damage;
             isHit = true;

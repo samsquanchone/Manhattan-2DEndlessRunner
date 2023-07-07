@@ -59,7 +59,16 @@ public class WormholePickup : SpeedPickUp
 
             //Power up player, then delete object
             int damage = Random.Range(-15, 15);
-            collision.gameObject.GetComponent<PlayerStats>().PlayerHit(damage);
+            if (damage > 0)
+            {
+                collision.gameObject.GetComponent<PlayerStats>().PlayerHit(damage);
+            }
+
+            else
+            {
+                //Convert to positive and heal
+                collision.gameObject.GetComponent<PlayerStats>().PlayerHealed(Mathf.Abs(damage));
+            }
 
             // now need to deduct or add points
 

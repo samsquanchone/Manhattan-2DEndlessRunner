@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7094647705068227919}
   - component: {fileID: 7094647705068227912}
   - component: {fileID: 7094647705068227913}
+  - component: {fileID: 8245820448345751093}
   - component: {fileID: 8698349884307562283}
   - component: {fileID: 5114028313612876841}
-  - component: {fileID: 5642375422571955383}
   m_Layer: 0
-  m_Name: MeleEnemy
+  m_Name: Enemy3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 04e779bfbf5f04ed980706056c0cc168, type: 3}
-  m_Color: {r: 0.9607843, g: 0.03137252, b: 0.09078143, a: 1}
+  m_Color: {r: 1, g: 0.6117647, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,6 +110,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8245820448345751093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7094647705068227914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6fcc56687d48b4788a03afbea779b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_poolType: 16
+  anim: {fileID: 7094647705068227913}
+  health: 80
+  points: 80
+  moveSpeed: 7
+  followSpeed: 2
+  engagementPositions:
+  - {fileID: 189256929768670461, guid: 642d91ebf321af346b8b5f68fd53aa88, type: 3}
+  - {fileID: 3402804951565668240, guid: d79cd95d822692e43bd1c0462b264953, type: 3}
+  - {fileID: 9201564554832459406, guid: 27e8f80309b5b1c47a08f23c9284896d, type: 3}
+  - {fileID: 8327904734410631136, guid: 009034d8b9c1ef846b2feaff4a6d330b, type: 3}
+  minShotCooldown: 1
+  maxShotCooldown: 3
+  firePoint: {fileID: 4387836878253127691}
+  bullet: {fileID: 5182163021499923868, guid: b6929963b36f88948bd2eaefe1001546, type: 3}
 --- !u!58 &8698349884307562283
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -147,34 +174,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5642375422571955383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7094647705068227914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bbbb377ef2d5314b8eec757983838fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_poolType: 13
-  anim: {fileID: 0}
-  health: 60
-  points: 60
-  moveSpeed: 7
-  followSpeed: 4
-  engagementPositions:
-  - {fileID: 8327904734410631136, guid: 009034d8b9c1ef846b2feaff4a6d330b, type: 3}
-  - {fileID: 189256929768670461, guid: 642d91ebf321af346b8b5f68fd53aa88, type: 3}
-  - {fileID: 3402804951565668240, guid: d79cd95d822692e43bd1c0462b264953, type: 3}
-  - {fileID: 9201564554832459406, guid: 27e8f80309b5b1c47a08f23c9284896d, type: 3}
-  minShotCooldown: 0
-  maxShotCooldown: 0
-  firePoint: {fileID: 0}
-  bullet: {fileID: 0}
-  meleDamage: 50
 --- !u!1 &8087855682223746533
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,15 +238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4873330720936822324, guid: 5b2faba7aaaa0e946a1d366910bc150f, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
-      value: 10.432951
+      value: 1.1416361
       objectReference: {fileID: 0}
     - target: {fileID: 4873330720936822324, guid: 5b2faba7aaaa0e946a1d366910bc150f, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
-      value: 1.0924556
+      value: 5.35989
       objectReference: {fileID: 0}
     - target: {fileID: 4873330720936822324, guid: 5b2faba7aaaa0e946a1d366910bc150f, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
-      value: 0.8739645
+      value: 0.42980257
       objectReference: {fileID: 0}
     - target: {fileID: 4873330720936822324, guid: 5b2faba7aaaa0e946a1d366910bc150f, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Overridden
