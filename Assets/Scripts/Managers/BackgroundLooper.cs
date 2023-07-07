@@ -19,7 +19,7 @@ public class BackgroundLooper : MonoBehaviour
         speed = intialSpeed;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {   if (GameManager.Instance.GameState()) //If game is playing, loop background
         {
             backgroudRenderer.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0f);
