@@ -14,7 +14,7 @@ public class MeleeEnemy : Enemy
         impactVFX = GetComponentInChildren<VisualEffect>();
         engagementPositionIndex = Random.Range(0, engagementPositions.Count);
 
-        health = initialHealth;
+       
 
         enemyState = EnemyState.Moving;
 
@@ -24,7 +24,8 @@ public class MeleeEnemy : Enemy
     private void OnEnable()
     {
         initialHealth = health;
-       
+        Events.Instance.OnTriggerStinger(this.poolType);
+
     }
 
     private void OnDisable()
@@ -101,11 +102,6 @@ public class MeleeEnemy : Enemy
             Events.Instance.OnStopStinger(this.poolType);
             PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
         }
-    }
-
-    void OnEnable()
-    {
-        Events.Instance.OnTriggerStinger(this.poolType);
     }
 
 }

@@ -66,7 +66,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         if (OutHole) {
-            Debug.Log("Scaling!!!!!");
+          
             visual.enabled = true;
             Vector3 newScale = Vector3.Lerp(transform.localScale, new Vector3(5, 5, 0), Speed * Time.deltaTime);
             transform.localScale = newScale;

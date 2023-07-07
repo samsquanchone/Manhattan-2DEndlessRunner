@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour, IEnemy
         this.initialHealth = health;
         this.engagementPositionIndex = Random.Range(0, engagementPositions.Count);
         this.Invoke(nameof(Shoot), 1f);
+        Events.Instance.OnTriggerStinger(this.poolType);
     }
 
     void OnDisable()
@@ -173,11 +174,6 @@ public class Enemy : MonoBehaviour, IEnemy
             Damaged(collision.gameObject.GetComponent<Bullet>().Damage());
             
         }
-    }
-
-    void OnEnable()
-    {
-        Events.Instance.OnTriggerStinger(this.poolType);
     }
 
 
