@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour, IEnemy
         health -= damage;
         if (health <= 0)
         {
-            Debug.Log("Enemy Dead");
+           
             if (IsDead == false) {
                 anim.Play("Enemy1_dead");
             }
