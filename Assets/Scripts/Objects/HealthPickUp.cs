@@ -31,6 +31,7 @@ public class HealthPickUp : SpeedPickUp
     {
         if (collision.CompareTag("Player"))
         {
+            Events.Instance.OnTriggerStinger(this.poolType);
             collision.transform.gameObject.GetComponent<PlayerStats>().PlayerHealed(healAmount);
             DeletePickUp();
         }
