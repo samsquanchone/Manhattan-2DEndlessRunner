@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour, IEnemy
     private bool IsDead = false;
 
     [SerializeField] protected VisualEffect impactVFX;
-    [SerializeField] protected GameObject enemyPrefab;
     [SerializeField] protected int health;
     protected const int initialHealth = 50;
 
@@ -48,12 +47,12 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] protected float followSpeed;
     [SerializeField] protected List<Transform> engagementPositions;
     protected int engagementPositionIndex;
-    [SerializeField] protected Transform playerPosition;
+    protected Transform playerPosition;
 
-    [SerializeField] protected float minShotCooldown;
-    [SerializeField] protected float maxShotCooldown;
+    [SerializeField] private float minShotCooldown;
+    [SerializeField] private float maxShotCooldown;
     [SerializeField] private Transform firePoint;
-    [SerializeField] protected GameObject bullet;
+    [SerializeField] private GameObject bullet;
 
     protected EnemyState enemyState = EnemyState.Moving;
 

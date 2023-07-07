@@ -28,6 +28,7 @@ public class BackgroundLooper : MonoBehaviour
 
     public void ChangeSpeed(int val)
     {
+        intialSpeed = speed;
         speed = val;
     }
 

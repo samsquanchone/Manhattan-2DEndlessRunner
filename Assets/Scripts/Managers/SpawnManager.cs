@@ -66,10 +66,9 @@ public class SpawnManager : MonoBehaviour
             {
                 case ObjectType.ENVIRONMENTALHAZARD:
                      i = Random.Range(0, environmentalHazardsPrefabs.Count);
-                    _obj = PoolingManager.Instance.GetPoolObject(GetEnvironmentalHazardToSpawn(i));   //Get pooling enum that for respective astroid index
+                    _obj = PoolingManager.Instance.GetPoolObject(environmentalHazardsPrefabs[i].GetComponent<Astroid>().GetPoolingType());   //Get pooling enum that for respective astroid index
                     _obj.transform.position = spawnPostitions[x].transform.position;
                     _obj.transform.rotation = environmentalHazardsPrefabs[i].transform.rotation;
-                    _obj.GetComponent<Astroid>().SetPoolingType(GetEnvironmentalHazardToSpawn(i));
                     _obj.SetActive(true);
                     break;
 
@@ -90,7 +89,7 @@ public class SpawnManager : MonoBehaviour
                     break;
 
                 default: //Default as other cases not defined yet
-                    _obj = PoolingManager.Instance.GetPoolObject(GetEnvironmentalHazardToSpawn(i)); //Get pooling enum that for respective astroid index
+                    _obj = PoolingManager.Instance.GetPoolObject(environmentalHazardsPrefabs[i].GetComponent<Astroid>().GetPoolingType()); //Get pooling enum that for respective astroid index
                     _obj.transform.position = spawnPostitions[x].transform.position;
                     _obj.transform.rotation = environmentalHazardsPrefabs[i].transform.rotation;
                     _obj.SetActive(true);
@@ -160,32 +159,7 @@ public class SpawnManager : MonoBehaviour
     }
 
 
-    PoolingObjectType GetEnvironmentalHazardToSpawn(int spawnIndex)
-    {
-        PoolingObjectType type;
-
-        switch (spawnIndex)
-        {
-            case 0:
-                type = PoolingObjectType.Astroid1;
-                break;
-
-            case 1:
-                type = PoolingObjectType.Astroid2;
-                break;
-
-            case 2:
-                type = PoolingObjectType.Astroid3;
-                break;
-
-            default:
-                type = PoolingObjectType.Astroid1;
-                break;
-
-        }
-
-        return type;
-    }
+  
 
     PoolingObjectType GetPickUpToSpawn(PickUpTypes pickUpType)
     {

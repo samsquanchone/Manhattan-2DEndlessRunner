@@ -15,7 +15,7 @@ public class Astroid : MonoBehaviour
     //VFX refs
     [SerializeField] VisualEffect impactVFX;
 
-    PoolingObjectType astroidType;
+    [SerializeField] PoolingObjectType astroidType;
 
     private void Start()
     {
@@ -33,9 +33,11 @@ public class Astroid : MonoBehaviour
         }
     }
 
-    public void SetPoolingType(PoolingObjectType poolType)
+    public PoolingObjectType GetPoolingType()
     {
-        astroidType = poolType;
+        PoolingObjectType _astroidType = astroidType;
+
+        return _astroidType;
     }
     public void Hit(int damage)
     {

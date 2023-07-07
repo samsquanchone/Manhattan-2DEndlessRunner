@@ -125,7 +125,6 @@ MonoBehaviour:
   m_poolType: 12
   anim: {fileID: 7094647705068227913}
   impactVFX: {fileID: 1122346904351611898}
-  enemyPrefab: {fileID: 7094647705068227914}
   health: 80
   points: 80
   moveSpeed: 5
@@ -135,11 +134,10 @@ MonoBehaviour:
   - {fileID: 3402804951565668240, guid: d79cd95d822692e43bd1c0462b264953, type: 3}
   - {fileID: 9201564554832459406, guid: 27e8f80309b5b1c47a08f23c9284896d, type: 3}
   - {fileID: 8327904734410631136, guid: 009034d8b9c1ef846b2feaff4a6d330b, type: 3}
-  playerPosition: {fileID: 0}
   minShotCooldown: 2
   maxShotCooldown: 5
   firePoint: {fileID: 4387836878253127691}
-  bullet: {fileID: 5182163021499923868, guid: e90b2527e1206f946a3ba0a613e1d8a2, type: 3}
+  bullet: {fileID: 5182163021499923868, guid: aa7e1cc379b1c3b49b417f2c4fc181a1, type: 3}
 --- !u!58 &8698349884307562283
 CircleCollider2D:
   m_ObjectHideFlags: 0

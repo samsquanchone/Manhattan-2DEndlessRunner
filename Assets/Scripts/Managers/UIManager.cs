@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
 
     public void IncrementPoints(int amount)
     {
-
+        if(points < 0)
         points += amount;
         pointsText.text = "Points: " + points.ToString(); 
     }
