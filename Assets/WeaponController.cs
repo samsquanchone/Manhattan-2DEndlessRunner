@@ -39,7 +39,7 @@ public class WeaponController : MonoBehaviour
     {   if (isLazerActive)
         {
             Vector2 laserDir = transform.TransformDirection(Vector2.right) * 100;
-            Debug.DrawRay( lazerFirePoint.transform.position, laserDir, Color.white);
+           
 
             RaycastHit2D hit = Physics2D.Raycast(lazerFirePoint.position, laserDir);
 
@@ -75,7 +75,7 @@ public class WeaponController : MonoBehaviour
 
     IEnumerator ChannelLazer()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         isLazerActive = true;
         StartCoroutine("CoolLazer");
         yield return new WaitForSeconds(2.5f);

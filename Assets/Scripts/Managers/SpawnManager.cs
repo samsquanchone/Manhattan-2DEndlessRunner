@@ -82,7 +82,7 @@ public class SpawnManager : MonoBehaviour
 
                 case ObjectType.PICKUP:
                     i = Random.Range(0, pickUpPrefabs.Count); //Get random index of prefab list
-                    _obj = PoolingManager.Instance.GetPoolObject(GetPickUpToSpawn(pickUpPrefabs[i].GetComponent<PickUpBase>().pickUpType));
+                    _obj = PoolingManager.Instance.GetPoolObject(pickUpPrefabs[i].GetComponent<PickUpBase>().poolType);
                     _obj.transform.position = spawnPostitions[x].transform.position;
                     _obj.transform.rotation = pickUpPrefabs[i].transform.rotation;
                     _obj.SetActive(true);
@@ -156,46 +156,6 @@ public class SpawnManager : MonoBehaviour
     void OnDestroy()
     {
         StopCoroutine("StartSpawnTimer");
-    }
-
-
-  
-
-    PoolingObjectType GetPickUpToSpawn(PickUpTypes pickUpType)
-    {
-        PoolingObjectType type;
-
-        switch (pickUpType)
-        {
-            case PickUpTypes.HEALTH:
-                type = PoolingObjectType.HealthPickUp;
-                break;
-
-            case PickUpTypes.SPEED:
-                type = PoolingObjectType.SpeedPickUp;
-                break;
-
-            case PickUpTypes.WORMHOLE:
-                type = PoolingObjectType.WormHolePickUp;
-                break;
-
-            case PickUpTypes.SHIELD:
-                type = PoolingObjectType.ShieldPickup;
-                break;
-
-
-            case PickUpTypes.WHITEHOLE:
-                type = PoolingObjectType.WhiteHolePickUp;
-                break;
-
-            default:
-                type = PoolingObjectType.HealthPickUp;
-                break;
-
-        }
-
-        return type;
-
     }
 
 }

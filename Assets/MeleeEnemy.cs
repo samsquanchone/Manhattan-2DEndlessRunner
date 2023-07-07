@@ -10,14 +10,26 @@ public class MeleeEnemy : Enemy
     {
         
         playerPosition = GameObject.Find("Player").transform;
-
+        anim = GetComponent<Animator>();
+        impactVFX = GetComponentInChildren<VisualEffect>();
         engagementPositionIndex = Random.Range(0, engagementPositions.Count);
 
         health = initialHealth;
 
         enemyState = EnemyState.Moving;
 
-        Events.Instance.OnTriggerStinger(this.poolType);
+       
+    }
+
+    private void OnEnable()
+    {
+        initialHealth = health;
+       
+    }
+
+    private void OnDisable()
+    {
+        health = initialHealth;
     }
 
     protected override void Update() //Override this on inheriting, can use this functionality, as well as extending it 
