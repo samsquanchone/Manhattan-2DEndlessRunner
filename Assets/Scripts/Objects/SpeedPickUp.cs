@@ -65,7 +65,7 @@ public class SpeedPickUp : MonoBehaviour, PickUpBase
     public void PowerUp()
     {
         StartCoroutine("PowerUpDurationTimer");
-        Events.Instance.OnTempoChanged(175);
+        Events.Instance.OnTempoChanged(240);
 
     }
 

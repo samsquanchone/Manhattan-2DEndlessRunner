@@ -110,6 +110,8 @@ public class Events : MonoBehaviour, Manhattan.Listener {
         }
     }
 
+    
+
     public void Hello()
     {
         
@@ -117,12 +119,14 @@ public class Events : MonoBehaviour, Manhattan.Listener {
     public void OnTempoChanged(int value)
     {
         manhattan.Set(".tempo", value);
+        manhattan.Set("@SpeedUp", 1);
         manhattan.Run("Loop"); // (code to resync drum loop)
     }
 
     public void ResetTempo()
     {
-        manhattan.Set(".tempo", 80);
+        manhattan.Set(".tempo", 120);
+        manhattan.Set("@SpeedUp", 0);
         manhattan.Run("Loop"); // (code to resync drum loop)
     }
 

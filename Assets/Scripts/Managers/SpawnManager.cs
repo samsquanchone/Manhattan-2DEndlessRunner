@@ -94,6 +94,7 @@ public class SpawnManager : MonoBehaviour
                     _obj.transform.position = spawnPostitions[x].transform.position;
                     _obj.transform.rotation = environmentalHazardsPrefabs[i].transform.rotation;
                     _obj.SetActive(true);
+                    
                     break;
 
             }
@@ -150,7 +151,7 @@ public class SpawnManager : MonoBehaviour
     }
     IEnumerator LightSpeedStateTimer()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         ChangeState(SpawnState.NORMAL);
     }
 
