@@ -23,6 +23,7 @@ interface IEnemy
 
 public class Enemy : MonoBehaviour, IEnemy
 {
+
     public PoolingObjectType m_poolType;
     public PoolingObjectType poolType
     
@@ -71,7 +72,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
         health = initialHealth;
 
-        Events.Instance.OnTriggerStinger(this.poolType);
+        
     }
 
     protected virtual void Update() //Override this on inheriting, can use this functionality, as well as extending it 
@@ -167,6 +168,12 @@ public class Enemy : MonoBehaviour, IEnemy
         }
     }
 
+    void OnEnable()
+    {
+        Events.Instance.OnTriggerStinger(this.poolType);
+    }
+
+
     IEnumerator DeathTime()
     { // this is on a seperate thread (coroutine)
 
@@ -174,6 +181,7 @@ public class Enemy : MonoBehaviour, IEnemy
         health = initialHealth; // as we are not deleting the objects, just de-activiating them, we cant rely on on Start
         UIManager.Instance.IncrementPoints(points);
         PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
+        Events.Instance.OnStopStinger(this.poolType);
         IsDead = false;
 
     }
