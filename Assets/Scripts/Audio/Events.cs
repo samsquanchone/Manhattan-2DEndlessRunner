@@ -66,6 +66,7 @@ public class Events : MonoBehaviour, Manhattan.Listener {
 
             case PoolingObjectType.WormHolePickUp:
                 Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("Play(@BlackHole)");
                 break;
 
             case PoolingObjectType.ShieldPickup:
@@ -107,8 +108,14 @@ public class Events : MonoBehaviour, Manhattan.Listener {
                 Debug.Log("Stopping: " + poolingObject.ToString() + "  Stinger");
                 manhattan.Code("[21:].channel.mute = 1");
                 break;
+            case PoolingObjectType.WhiteHolePickUp:
+                Debug.Log("Stopping: " + poolingObject.ToString() + "  Stinger");
+                //manhattan.Code("stop(@BlackHole)");
+                break;
         }
     }
+
+    
 
     public void Hello()
     {
@@ -117,12 +124,14 @@ public class Events : MonoBehaviour, Manhattan.Listener {
     public void OnTempoChanged(int value)
     {
         manhattan.Set(".tempo", value);
+        manhattan.Set("@SpeedUp", 1);
         manhattan.Run("Loop"); // (code to resync drum loop)
     }
 
     public void ResetTempo()
     {
-        manhattan.Set(".tempo", 80);
+        manhattan.Set(".tempo", 120);
+        manhattan.Set("@SpeedUp", 0);
         manhattan.Run("Loop"); // (code to resync drum loop)
     }
 
