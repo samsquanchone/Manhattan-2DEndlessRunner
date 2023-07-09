@@ -25,12 +25,22 @@ public class WhiteholePickup : SpeedPickUp
         this.MovePickUp();
         if (this.transform.position.x <= -7.5) {
             PlayerStats.OutWormhole();
-            PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
+            Events.Instance.OnStopStinger(this.poolType);
+            StartCoroutine("DeleteTime");
         }
     }
 
     public void MovePickUp()
     {
         base.MovePickUp();
+    }
+
+    IEnumerator DeleteTime()
+    { // this is on a seperate thread (coroutine)
+
+        yield return new WaitForSeconds(1f);
+        PoolingManager.Instance.CoolObject(this.gameObject, this.poolType);
+
+
     }
 }

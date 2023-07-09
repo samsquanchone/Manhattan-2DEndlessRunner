@@ -66,6 +66,7 @@ public class Events : MonoBehaviour, Manhattan.Listener {
 
             case PoolingObjectType.WormHolePickUp:
                 Debug.Log("Triggering: " + poolingObject.ToString() + "  Stinger");
+                manhattan.Code("Play(@BlackHole)");
                 break;
 
             case PoolingObjectType.ShieldPickup:
@@ -106,6 +107,10 @@ public class Events : MonoBehaviour, Manhattan.Listener {
             case PoolingObjectType.MeleeEnemy:
                 Debug.Log("Stopping: " + poolingObject.ToString() + "  Stinger");
                 manhattan.Code("[21:].channel.mute = 1");
+                break;
+            case PoolingObjectType.WhiteHolePickUp:
+                Debug.Log("Stopping: " + poolingObject.ToString() + "  Stinger");
+                //manhattan.Code("stop(@BlackHole)");
                 break;
         }
     }
