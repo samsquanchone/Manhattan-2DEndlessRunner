@@ -66,12 +66,13 @@ public class PlayerStats : MonoBehaviour
         }
 
         if (OutHole) {
-          
+            Debug.Log("Scaling!!!!!");
+            transform.position = new Vector3(-7.13f, 0, 0);
             visual.enabled = true;
             Vector3 newScale = Vector3.Lerp(transform.localScale, new Vector3(5, 5, 0), Speed * Time.deltaTime);
             transform.localScale = newScale;
 
-            if (transform.localScale.x >= 5f)
+            if (transform.localScale.x >= 4.9f)
             {
                 Debug.Log("your out!");
                 OutHole = false;
@@ -119,6 +120,7 @@ public class PlayerStats : MonoBehaviour
 
     public void InWormhole () {
         InHole = true;
+        
     }
 
     public void OutWormhole () {
