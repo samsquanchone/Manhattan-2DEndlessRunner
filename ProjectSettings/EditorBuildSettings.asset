@@ -7,11 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/UI/StartMenu.unity
-    guid: f15c7db901ded437ebe66df8db2d5409
+    guid: 152a230db30fea54b9a72b0595badb3b
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/UI/DeathScreen.unity
-    guid: 2e8474cff0b4c4f10ae680376473e09c
+    guid: eb027567eff910e4db5250a267443ddb
   m_configObjects: {}

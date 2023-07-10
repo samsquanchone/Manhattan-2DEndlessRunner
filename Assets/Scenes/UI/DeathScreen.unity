@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOUR DEAD
+  m_text: YOU'Re DEAD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 988d97dfe12026c4db19403aa2fcfdc7, type: 2}
   m_sharedMaterial: {fileID: 4842784155496915557, guid: 988d97dfe12026c4db19403aa2fcfdc7, type: 2}
