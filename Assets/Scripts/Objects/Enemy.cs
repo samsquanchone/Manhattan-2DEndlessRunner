@@ -79,6 +79,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     void OnDisable()
     {
+        Events.Instance.OnStopStinger(this.poolType);
         health = initialHealth;
     }
 

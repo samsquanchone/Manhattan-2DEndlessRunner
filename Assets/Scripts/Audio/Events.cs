@@ -112,6 +112,10 @@ public class Events : MonoBehaviour, Manhattan.Listener {
                 Debug.Log("Stopping: " + poolingObject.ToString() + "  Stinger");
                 //manhattan.Code("stop(@BlackHole)");
                 break;
+
+            
+
+
         }
     }
 
