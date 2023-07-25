@@ -11,6 +11,7 @@ public class GameMenu : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         menuPanel.SetActive(false);
         resumeButton.onClick.AddListener(delegate { HideMenu(); });
         quitButton.onClick.AddListener(delegate { QuitToMenu(); });
@@ -26,12 +27,14 @@ public class GameMenu : MonoBehaviour
 
     void ShowMenu() 
     {
+        Cursor.lockState = CursorLockMode.Confined;
         GameManager.Instance.SetGameState(GameStateEnum.MenuOpen);
         menuPanel.SetActive(true);
     }
 
     void HideMenu()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         GameManager.Instance.SetGameState(GameStateEnum.Normal);
         menuPanel.SetActive(false);
     }
