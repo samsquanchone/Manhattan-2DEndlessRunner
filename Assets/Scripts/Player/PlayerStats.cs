@@ -21,7 +21,7 @@ public class PlayerStats : MonoBehaviour
 
     bool InHole = false;
     bool OutHole = false;
-    
+
 
     private bool isHit;
     public GameObject shield;
@@ -40,32 +40,36 @@ public class PlayerStats : MonoBehaviour
         originTransform = this.transform;
         isHit = false;
         InHole = false;
-       /// shieldPickup = GameObject.Find("Shield").GetComponent<ShieldPickup>();
+        /// shieldPickup = GameObject.Find("Shield").GetComponent<ShieldPickup>();
         UIManager.Instance.ChangePlayerHealht(health); //Set Health UI based off inspector set player deafult health
         visual = GetComponent<Renderer>();
         visual.enabled = true;
         canShoot = true;
     }
 
-    private void LateUpdate() {
-        if (InHole) {
+    private void LateUpdate()
+    {
+        if (InHole)
+        {
 
 
-            
+
             Vector3 newScale = Vector3.Lerp(transform.localScale, new Vector3(0.05f, 0.05f, 0), Speed * Time.deltaTime);
             transform.localScale = newScale;
 
-            if (transform.localScale.x <= 0.2f) {
+            if (transform.localScale.x <= 0.2f)
+            {
                 canShoot = false;
                 Debug.Log("spawn white hole");
                 visual.enabled = false;
                 StartCoroutine("WhiteholeTime");
                 InHole = false;
             }
-      
+
         }
 
-        if (OutHole) {
+        if (OutHole)
+        {
             Debug.Log("Scaling!!!!!");
             transform.position = new Vector3(-7.13f, 0, 0);
             visual.enabled = true;
@@ -76,7 +80,7 @@ public class PlayerStats : MonoBehaviour
             {
                 Debug.Log("your out!");
                 OutHole = false;
-              
+
 
             }
             canShoot = true;
@@ -87,7 +91,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (!isShieldActive)
         {
-            
+
             impactVFX.Play();
             health -= damage;
             isHit = true;
@@ -105,9 +109,14 @@ public class PlayerStats : MonoBehaviour
 
     public void PlayerHealed(int amount)
     {
+        int _health = 0;
         if (health < 100)
-            health += amount;
-            UIManager.Instance.ChangePlayerHealht(health);
+        {
+            _health = health + amount;
+            _health = Mathf.Clamp(_health, 0, 100);
+
+            UIManager.Instance.ChangePlayerHealht(_health);
+        }
 
     }
 
@@ -118,22 +127,25 @@ public class PlayerStats : MonoBehaviour
         GameManager.Instance.GameOverState();
     }
 
-    public void InWormhole () {
+    public void InWormhole()
+    {
         InHole = true;
-        
+
     }
 
-    public void OutWormhole () {
+    public void OutWormhole()
+    {
         OutHole = true;
     }
-    
+
     public bool CanPlayerShoot()
     {
         bool can = canShoot;
 
         return can;
     }
-    public void SpawnWhitehole () {
+    public void SpawnWhitehole()
+    {
         // have a reference
         GameObject _obj = PoolingManager.Instance.GetPoolObject(PoolingObjectType.WhiteHolePickUp);   //Get pooling enum that for respective astroid index
         _obj.transform.position = new Vector3(-7.0f, this.transform.position.y, -7.7f);
@@ -159,7 +171,8 @@ public class PlayerStats : MonoBehaviour
         isShieldActive = false;
     }
 
-    IEnumerator WhiteholeTime () { // this is on a seperate thread (coroutine)
+    IEnumerator WhiteholeTime()
+    { // this is on a seperate thread (coroutine)
 
         yield return new WaitForSeconds(2f);
         SpawnWhitehole();

@@ -30,6 +30,7 @@ public class MeleeEnemy : Enemy
 
     private void OnDisable()
     {
+        Events.Instance.OnStopStinger(this.poolType);
         health = initialHealth;
     }
 
